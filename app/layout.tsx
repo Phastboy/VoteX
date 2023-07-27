@@ -18,25 +18,28 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-		<header>
-			<div>
+		<header className="flex flex-row dark:bg-gray-900 col-white p-10">
+			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 				<Image src="/logo.svg"
 					alt="VoteX logo"
 					height={200}
 					width={144}
+					className="h-8 mr-3"
 				/>
 			</div>
-			<nav>
+			<div className="hidden w-full md:block md:w-auto">
 				<ul>
 					<li>pricing</li>
 					<li>reviews</li>
 					<li>contact</li>
 				</ul>
+			</div>
+			<div>
 				<ul>
 					<li>login</li>
 					<li>sign up</li>
 				</ul>
-			</nav>
+			</div>
 		</header>
 		{children}
 	  </body>
