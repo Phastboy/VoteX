@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image';
 import Link from 'next/link';
+import Menu from './nav';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -19,6 +20,31 @@ import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 export default function Home() {
   return (
 	<>
+		<NavigationMenu>
+  <NavigationMenuList>
+  <NavigationMenuItem>
+  <Link href="/docs" legacyBehavior passHref>
+    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+      Documentation
+    </NavigationMenuLink>
+  </Link>
+	</NavigationMenuItem>
+
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>MENU</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink>PRICING</NavigationMenuLink>
+        <NavigationMenuLink>REVIEWS</NavigationMenuLink>
+        <NavigationMenuLink>CONTACT</NavigationMenuLink>
+        <NavigationMenuLink>LOGIN</NavigationMenuLink>
+        <NavigationMenuLink>SIGN UP</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+
+<Menu></Menu>
+
 		<nav>
 			<ul>
 				<li>
