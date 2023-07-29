@@ -20,25 +20,34 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-		<header className="flex flex-row dark:bg-gray-900 col-white p-10">
-			<nav className="flex justify-center space-x-4">
-			<div id="logo">
-  <Link href="/" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">
-				<Image src="/logo.svg"
-					alt="VoteX logo"
-					height={200}
-					width={144}
-					className="h-8 mr-3"
-				/>
-  </Link></div>
-  <Link href="/pricing" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Pricing</Link>
-  <Link href="/projects" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Reviews</Link>
-  <Link href="/reports" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Contact</Link>
-</nav>
-		</header>
-		<div>
-			{children}
-		</div>
+        <header className="flex flex-row dark:bg-gray-900 col-white p-10">
+          <nav className="flex justify-center space-x-4">
+            <div id="logo" className=''>
+              <Link href="/" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">
+                <Image src="/logo.svg"
+                alt="VoteX logo"
+					      height={200}
+					      width={144}
+					      className="h-8 mr-3"
+                />
+              </Link>
+            </div>
+            <div id="menu">
+            {[
+              ['Pricing', '/pricing'],
+              ['Reviews', '/reviews'],
+              ['Contact', '/contact'],
+              ['Login', '/login'],
+              ['Sign Up', '/signup']
+            ].map(([title, url]) => (
+            <Link href={url} className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">{title}</Link>
+            ))}
+            </div>
+          </nav>
+        </header>
+      <div>
+        {children}
+      </div>
 	  </body>
     </html>
   )

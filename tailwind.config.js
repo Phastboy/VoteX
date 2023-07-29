@@ -14,8 +14,22 @@ module.exports = {
       screens: {
         "2xl": "1400px",
       },
+      spacing: {
+        '1': '8px',
+        '2': '12px',
+        '3': '16px',
+        '4': '24px',
+        '5': '32px',
+        '6': '48px',
+      }
     },
     extend: {
+      spacing: {
+        '13': '3.25rem',
+        '15': '3.75rem',
+        '128': '32rem',
+        '144': '36rem',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
