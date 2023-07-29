@@ -11,7 +11,7 @@ export default function Login() {
             alt="VoteX logo"
             />
         </div>
-        <h3>Sign up for free</h3>
+        <h3>login as guest</h3>
         </>
     );
 }

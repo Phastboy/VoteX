@@ -1,4 +1,4 @@
-import './globals.css'
+import '../globals.css'
 import type { Metadata } from 'next'
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="flex flex-row dark:bg-gray-900 col-white p-10">
+        {/*<header className="flex flex-row dark:bg-gray-900 col-white p-10">
           <nav className="flex justify-center space-x-4">
             <div id="logo" className=''>
               <Link href="/" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">
@@ -34,17 +34,14 @@ export default function RootLayout({
             </div>
             <div id="menu">
             {[
-              ['Pricing', '/pricing'],
-              ['Reviews', '/reviews'],
-              ['Contact', '/contact'],
-              ['Login', '/login'],
-              ['Sign Up', '/sign-up']
+              ['dashboard', '/dashboard'],
+              ['settings', '/dashboard/settings']
             ].map(([title, url]) => (
             <Link href={url} className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">{title}</Link>
             ))}
             </div>
           </nav>
-        </header>
+        </header>*/}
       <div>
         {children}
       </div>
