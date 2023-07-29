@@ -21,9 +21,37 @@ module.exports = {
         '4': '24px',
         '5': '32px',
         '6': '48px',
+      },
+      colors:{
+        transparent: 'transparent',
+        current: 'currentColor',
+        green: {
+           light:'#008753'
+          },
+        blue: {
+          light: '#85d7ff',
+          DEFAULT: '#1fb6ff',
+          dark: '#009eeb',
+        },
+        pink: {
+          light: '#ff7ce5',
+          DEFAULT: '#ff49db',
+          dark: '#ff16d1',
+        },
+        gray: {
+          darkest: '#1f2d3d',
+          dark: '#3c4858',
+          DEFAULT: '#c0ccda',
+          light: '#e0e6ed',
+          lightest: '#f9fafc',
+        }
       }
     },
     extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/bg-top.png')",
+        'footer-texture': "url('/img/footer-texture.png')",
+      },
       spacing: {
         '13': '3.25rem',
         '15': '3.75rem',

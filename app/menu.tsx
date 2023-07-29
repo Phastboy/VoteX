@@ -8,20 +8,24 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Menu(){
 	return (
-		<Menubar>
+		<Menubar className="float-right m-10">
   <MenubarMenu>
     <MenubarTrigger>Menu</MenubarTrigger>
     <MenubarContent>
-      <MenubarItem>Pricing
+      <MenubarItem>
+      <Link  href='/pricing'>PRICING</Link>
       </MenubarItem>
-      <MenubarItem>New Window</MenubarItem>
+      <MenubarItem><Link href='/reviews'>REVIEWS</Link></MenubarItem>
       <MenubarSeparator />
-      <MenubarItem>Share</MenubarItem>
+      <MenubarItem><Link href='/contact'>CONTACT</Link></MenubarItem>
       <MenubarSeparator />
-      <MenubarItem>Print</MenubarItem>
+      <MenubarItem><Link href='/login'>LOGIN</Link></MenubarItem>
+      <MenubarSeparator />
+      <MenubarItem><Link href='/sign-up'>SIGN UP</Link></MenubarItem>
     </MenubarContent>
   </MenubarMenu>
 </Menubar>

@@ -1,34 +1,66 @@
 'use client'
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import Menu from "./menu";
 
 
 
 
 export default function Home() {
   return (
-	<main className="bg-white dark:bg-black">
-
+	<>
+	<Head>
+		<title>VoteX</title>
+		<meta name="description" content="online voting system" />
+		<link rel="icon" href="/logo.svg" />
+	</Head>
+	<main className="bg-black">
+		<header className="">
+          <div >
+              <Link href="/" className="">
+                <Image src="/logo.svg"
+                alt="VoteX logo"
+					      height={200}
+					      width={144}
+					      className='float-left p-10'
+                />
+              </Link>
+            </div>
+            <Menu/>{/*
+          <nav className="float-right space-x-4 p-10"> 
+            {[
+              ['Pricing', '/pricing'],
+              ['Reviews', '/reviews'],
+              ['Contact', '/contact'],
+              ['Login', '/login'],
+              ['Sign Up', '/sign-up']
+            ].map(([title, url]) => (
+            <Link href={url} className="">{title}</Link>
+            ))}
+          </nav>*/}
+        </header>
 		<div>
-			<div>
+			<div className="bg-[url('/bg-top.png')]">
+			<div className='float-left'>
 				<h2>
 					Put your needs first:
 				</h2>
+				<p></p>
 			</div>
 			<div>
 				<p>
 					Discover comprehensive range
 				</p>
 			</div>
-			<div >
+			<div className='float-right'>
 				<Image 
 					src="/cast_vote.png"
 					width={100}
 					height={100}
 					alt="votex logo"
 				/>
-				<h1>
-				</h1>
+			</div>
 			</div>
 			<div>
 				<Image 
@@ -105,5 +137,6 @@ export default function Home() {
 			</div>
 		</div>
 	</main>
+	</>
   );
 }
