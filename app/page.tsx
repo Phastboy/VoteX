@@ -19,7 +19,7 @@ import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
 export default function Home() {
   return (
-	<>
+	<main className="bg-black">
 
 		<div>
 			<div>
@@ -32,7 +32,7 @@ export default function Home() {
 					Discover comprehensive range
 				</p>
 			</div>
-			<div>
+			<div >
 				<Image 
 					src="/cast_vote.png"
 					width={100}
@@ -116,6 +116,6 @@ export default function Home() {
 				</h1>
 			</div>
 		</div>
-	</>
+	</main>
   );
 }
