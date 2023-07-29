@@ -1,7 +1,9 @@
-//import './globals.css'
+import './globals.css'
 import type { Metadata } from 'next'
 import Image from 'next/image';
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
+import Link from 'next/link';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,29 +21,24 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
 		<header className="flex flex-row dark:bg-gray-900 col-white p-10">
-			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+			<nav className="flex justify-center space-x-4">
+			<div id="logo">
+  <Link href="/" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">
 				<Image src="/logo.svg"
 					alt="VoteX logo"
 					height={200}
 					width={144}
 					className="h-8 mr-3"
 				/>
-			</div>
-			<div className="hidden w-full md:block md:w-auto">
-				<ul>
-					<li>pricing</li>
-					<li>reviews</li>
-					<li>contact</li>
-				</ul>
-			</div>
-			<div>
-				<ul>
-					<li>login</li>
-					<li>sign up</li>
-				</ul>
-			</div>
+  </Link></div>
+  <Link href="/pricing" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Pricing</Link>
+  <Link href="/projects" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Reviews</Link>
+  <Link href="/reports" className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900">Contact</Link>
+</nav>
 		</header>
-		{children}
+		<div>
+			{children}
+		</div>
 	  </body>
     </html>
   )

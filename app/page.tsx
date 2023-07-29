@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image';
 import Link from 'next/link';
-import Menu from './nav';
+import Menu from './menu';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -20,62 +20,7 @@ import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 export default function Home() {
   return (
 	<>
-		<NavigationMenu>
-  <NavigationMenuList>
-  <NavigationMenuItem>
-  <Link href="/docs" legacyBehavior passHref>
-    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-      Documentation
-    </NavigationMenuLink>
-  </Link>
-	</NavigationMenuItem>
 
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>MENU</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <NavigationMenuLink>PRICING</NavigationMenuLink>
-        <NavigationMenuLink>REVIEWS</NavigationMenuLink>
-        <NavigationMenuLink>CONTACT</NavigationMenuLink>
-        <NavigationMenuLink>LOGIN</NavigationMenuLink>
-        <NavigationMenuLink>SIGN UP</NavigationMenuLink>
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-  </NavigationMenuList>
-</NavigationMenu>
-
-<Menu></Menu>
-
-		<nav>
-			<ul>
-				<li>
-					Pricing
-				</li>
-				<li>
-					Reviews
-				</li>
-				<li>
-					Contact
-				</li>
-				<li>
-					Login
-				</li>
-				<li>
-					sign up
-				</li>
-			</ul>
-		</nav>
-		<h1>Home page</h1>
-		<div>
-			<h1>
-				vote anytime with
-				<Image 
-					src="/logo.svg"
-					width={100}
-					height={100}
-					alt="votex logo"
-				/>
-			</h1>
-		</div>
 		<div>
 			<div>
 				<h2>

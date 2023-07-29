@@ -19,15 +19,21 @@ import {
 } from "@/components/ui/navigation-menu";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import Link from 'next/link';
+import Image from 'next/image';
 
-export function Nav(){
+export default function Nav(){
   return (
 		<NavigationMenu>
   <NavigationMenuList>
   <NavigationMenuItem>
-  <Link href="/docs" legacyBehavior passHref>
+  <Link href="/" legacyBehavior passHref>
     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-      Documentation
+      <Image
+		src="/logo.svg"
+		alt="VoteX logo"
+		width={100}
+		height={100}
+	  />
     </NavigationMenuLink>
   </Link>
 	</NavigationMenuItem>
@@ -48,23 +54,3 @@ export function Nav(){
 }
 
 
-export function Menu(){
-	return (
-		<Menubar>
-  <MenubarMenu>
-    <MenubarTrigger>File</MenubarTrigger>
-    <MenubarContent>
-      <MenubarItem>
-        New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem>New Window</MenubarItem>
-      <MenubarSeparator />
-      <MenubarItem>Share</MenubarItem>
-      <MenubarSeparator />
-      <MenubarItem>Print</MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-</Menubar>
-
-	);
-}
