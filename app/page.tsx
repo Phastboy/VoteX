@@ -4,9 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Menu from "./menu";
 
-
-
-
 export default function Home() {
   return (
 	<>
@@ -40,9 +37,9 @@ export default function Home() {
             ))}
           </nav>*/}
         </header>
-		<div>
+		<div  className=''>
 			<div className="bg-[url('/bg-top.png')]">
-			<div className='float-left'>
+			<div>
 				<h2>
 					Put your needs first:
 				</h2>
@@ -53,7 +50,7 @@ export default function Home() {
 					Discover comprehensive range
 				</p>
 			</div>
-			<div className='float-right'>
+			<div className=''>
 				<Image 
 					src="/cast_vote.png"
 					width={100}
