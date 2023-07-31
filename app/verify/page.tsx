@@ -12,7 +12,7 @@ export default function Login() {
             />
         </div>
         <h3>Your verifiication code has been sent to your phone number and email</h3>
-        <form>
+        <form method="POST" target="/home">
             <input
             type="text"
             placeholder="enter the verification code that was sent to you"

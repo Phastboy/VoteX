@@ -71,9 +71,9 @@ export default function Login() {
                 </form>
                 <p className="mt-10 text-center text-sm text-gray-500">
                 Not a member?
-                    <Link href="/guest" 
+                    <Link href="/sign-up" 
                     className="font-semibold leading-6 text-green-600 hover:text-green-500">
-                    Login as a guest
+                    Sign up
                     </Link>
                 </p>
             </div>
