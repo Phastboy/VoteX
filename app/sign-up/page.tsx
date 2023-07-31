@@ -109,10 +109,10 @@ export default function Login() {
                     </div>
                 </form>
                 <p className="mt-10 text-center text-sm text-gray-500">
-                Have an account?
+                Not a student?
                     <Link href="/guest" 
                     className="font-semibold leading-6 text-green-600 hover:text-green-500">
-                    Login
+                    Sign up as guest
                     </Link>
                 </p>
             </div>

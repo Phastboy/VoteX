@@ -11,7 +11,18 @@ export default function Login() {
             alt="VoteX logo"
             />
         </div>
-        <h3>your verifiication code has been sent</h3>
+        <h3>Your verifiication code has been sent to your phone number and email</h3>
+        <form>
+            <input
+            type="number"
+            placeholder="enter the verification code that was sent to you"
+            />
+            <button 
+            type="submit"
+            className="bg-green-600 rounded-md lg:rounded-lg font-semibold">
+            Submit
+            </button>
+        </form>
         </>
     );
 }
