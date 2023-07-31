@@ -15,7 +15,7 @@ export default function Login() {
         <form method="POST" target="/home">
             <input
             type="text"
-            placeholder="enter the verification code that was sent to you"
+            placeholder="enter the verification code"
             />
             <button className="btn btn-green">
             Button
