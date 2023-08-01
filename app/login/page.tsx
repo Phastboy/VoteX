@@ -63,7 +63,7 @@ export default function Login() {
                 </div>
                 <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
             </div>
-            <Link href="/forgot-password" className="font-semibold ml-auto text-sm text-green-600 hover:text-green-500 dark:text-green-500">Forgot Password?</Link>
+            <Link href="/login/forgot-password" className="font-semibold ml-auto text-sm text-green-600 hover:text-green-500 dark:text-green-500">Forgot Password?</Link>
         </div>
                     <div>
                         <button type="submit"
