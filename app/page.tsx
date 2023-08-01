@@ -37,7 +37,7 @@ export default function Home() {
             ))}
           </nav>*/}
         </header>
-		<div  className=''>
+		<div className="flex flex-col items-center pb-10">
 			<div className="bg-[url('/bg-top.png')]">
 			<div>
 				<h2>

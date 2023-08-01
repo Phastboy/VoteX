@@ -44,12 +44,6 @@ export default function Login() {
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                             Password
                             </label>
-                            <div className="text-sm">
-                                <Link href="/forgot-password" 
-                                className="font-semibold text-green-600 hover:text-green-500">
-                                Forgot password?
-                                </Link>
-                            </div>
                         </div>
                         <div className="mt-2">
                             <input 
@@ -62,6 +56,15 @@ export default function Login() {
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
                         </div>
                     </div>
+					<div className="flex items-start">
+            <div className="flex items-start">
+                <div className="flex items-center h-5">
+                    <input id="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-green-300 dark:bg-green-700 dark:border-gray-600 dark:focus:ring-green-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
+                </div>
+                <label htmlFor="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+            </div>
+            <Link href="/forgot-password" className="font-semibold ml-auto text-sm text-green-600 hover:text-green-500 dark:text-green-500">Forgot Password?</Link>
+        </div>
                     <div>
                         <button type="submit"
                         className="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
@@ -69,6 +72,7 @@ export default function Login() {
                         </button>
                     </div>
                 </form>
+				<div className="text-sm">
                 <p className="mt-10 text-center text-sm text-gray-500">
                 Not a member?
                     <Link href="/sign-up" 
@@ -76,6 +80,7 @@ export default function Login() {
                     Sign up
                     </Link>
                 </p>
+				</div>
             </div>
         </div>
     );
