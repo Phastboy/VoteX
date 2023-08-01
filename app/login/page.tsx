@@ -10,7 +10,7 @@ export default function Login() {
                 className="mx-auto h-10 w-auto" 
                 height={100}
                 width={100}
-                src="/white.jpeg" 
+                src="/black.svg" 
                 alt="VoteX"
                 />
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
