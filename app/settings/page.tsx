@@ -6,7 +6,7 @@ export default function Profile(){
 			<h1>Account settings</h1>
 			<div className="ps-4">
 				<h6>
-					<Link href="#" className="font-semibold text-sm">
+					<Link href="/profile-settings" className="font-semibold text-sm">
 					Profile
 					</Link>
 				</h6>
