@@ -8,7 +8,7 @@ export default function Login() {
                 
              <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
 					<h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-					Profile setting
+					Profile settings
 					</h2>
                 <form 
                 className="space-y-6" 
