@@ -23,9 +23,9 @@ export default function Menu(){
       <MenubarSeparator />
       <MenubarItem><Link href='/contact'>CONTACT</Link></MenubarItem>
       <MenubarSeparator />
-      <MenubarItem><Link href='/login'>LOGIN</Link></MenubarItem>
+      <MenubarItem><Link href='/auth/login'>LOGIN</Link></MenubarItem>
       <MenubarSeparator />
-      <MenubarItem><Link href='/sign-up'>SIGN UP</Link></MenubarItem>
+      <MenubarItem><Link href='/auth/sign-up'>SIGN UP</Link></MenubarItem>
     </MenubarContent>
   </MenubarMenu>
 </Menubar>
