@@ -13,9 +13,9 @@ export default function Login() {
                 className="space-y-6" 
                 action="/api" 
                 method="POST">
-					<div className="sm:mx-auto sm:w-full sm:max-w-sm">
+					<div className="flex flex-col mx-auto sm:mx-auto sm:w-full sm:max-w-sm">
 						<Image 
-						className="my-5 h-auto w-auto" 
+						className="my-5 mx-auto h-auto w-auto" 
 						height={200}
 						width={200}
 						src="/avatar.png" 
@@ -25,11 +25,11 @@ export default function Login() {
                         name="avatar" type="file" 
                         placeholder="Change avatar"
 						accept="image/png, image/jpg, image/svg, image/jpeg, image/gif"
-                        className="hidden block w-full border-0 ps-2 py-1.5 rounded-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                        className="hidden mx-auto border-0 ps-2 py-1.5 rounded-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                         />
                         <label 
                         htmlFor="avatar" 
-                        className="block text-sm font-medium leading-6 text-gray-900">
+                        className="mx-auto text-sm font-medium leading-6 text-gray-900">
                         Change avatar
                         </label>
 					</div>
