@@ -217,6 +217,47 @@ export default function Home() {
 							height={15}
 							/>
 			</div>
+			<div className="flex space-x-8 justify-center">
+				<div className="flex-col space-y-2">
+					<div className="flex-col space-y-2 my-5 py-5">
+						<h4>What we do</h4>
+						<div className="text-sm h-full">
+							<p>Features</p>
+							<p>Blog</p>
+							<p>Security</p>
+							<p>For Business</p>
+							<p>For private Election</p>
+						</div>
+					</div>
+					<div className="flex-col space-y-2">
+						<h4>Use VoteX</h4>
+						<div className="text-sm h-full">
+							<p>Iphone</p>
+							<p>Android</p>
+							<p>PC/Mac</p>
+						</div>
+					</div>
+				</div>
+				<div className="flex-col space-y-4">
+					<div className="flex-col space-y-2 my-5 py-5">
+						<h4>Who we are</h4>
+						<div className="text-sm h-full">
+							<p>About us</p>
+							<p>Careers</p>
+							<p>Brand center</p>
+							<p>Privacy</p>
+						</div>
+					</div>
+					<div className="flex-col space-y-2 my-5 py-5">
+						<h4>Need help?</h4>
+						<div className="text-sm h-full">
+							<p>Contact us</p>
+							<p>Help center</p>
+							<p>Security advisories</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</footer>
 	</main>
 	</>
