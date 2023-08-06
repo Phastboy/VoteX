@@ -66,7 +66,7 @@ export default function Home() {
 			</div>
 			</div>
 		<div className="flex flex-col mx-auto text-center space-y-8 mb-5">
-			<div className="flex flex-col text-center mx-auto ">
+			<div className="flex flex-col text-center mx-auto py-5">
 				<h2>Putting Your Needs First: The Ultimate Online Voting System</h2>
 				<p>Discover a comprehensive range of or he voting software goons, from secure polling software to managing corales virtual voting events, all designet to exceed your expectations</p>
 			</div>
