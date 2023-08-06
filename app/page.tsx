@@ -40,7 +40,7 @@ export default function Home() {
 			<div className="bg-[url('/bg-top.png')] bg-gray-900 text-white">
 				<div className="flex py-2 my-10">
 					<div className="flex-col">
-						<h2>
+						<h3 className="font-semibold">
 						Vote anytime, anywhere with 
 							<Image
 							src="/logo.png"
@@ -48,11 +48,9 @@ export default function Home() {
 							width={100}
 							height={100}
 							/>
-						</h2>
-						<h5 >
 							: YOUR SECURE ONLINE VOTING APP
-						</h5>
-						<p>
+						</h3>
+						<p className="text-sm">
 						Cast your vote anytime, anywhere with confidence. Simple, secure, and ready to empower your voice. Register now and make a difference!
 						</p>
 					</div>
@@ -65,8 +63,8 @@ export default function Home() {
 					/>
 				</div>
 			</div>
-		<div className="flex flex-col mx-auto text-center space-y-10 mb-10">
-			<div className="flex flex-col text-center mx-auto mb-10">
+		<div className="flex flex-col mx-auto text-center space-y-10 mb-5">
+			<div className="flex flex-col text-center mx-auto ">
 				<h2>Putting Your Needs First: The Ultimate Online Voting System</h2>
 				<p>Discover a comprehensive range of or he voting software goons, from secure polling software to managing corales virtual voting events, all designet to exceed your expectations</p>
 			</div>
@@ -149,13 +147,77 @@ export default function Home() {
 				<p>Questions or need help? Our support team respond within 10 minutes during business hours.</p>
 			</div>
 		</div>
-		<div>
-			<div>
-				<h3>
-					Initiate your first election journey
-				</h3>
+		<div className="bg-gray-900 p-5 text-white">
+			<div className="flex flex-col text-center mx-auto">
+				<h2>View all Features & Capabilities</h2>
+				<p>Unleash the full potential of our platform! Delve into a world of powerful features and capabilities that make online voting a seamless and rewarding experience for all.</p>
+				<button className="bg-gray-100 text-black font-bold rounded py-2 mt-5">Learn more ...</button>
 			</div>
 		</div>
+		<div className="flex flex-col py-10 space-y-4">
+			<div className="text-center bg-green-100 py-5">
+				<Image 
+					src="/mac_book.png"
+					width={200}
+					height={200}
+					alt="votex logo"
+					className="mx-auto"
+				/>
+				<h3>Empower Your Voice: Introducing VoteX Online Voting App</h3>
+				<p>Fostering leadership through every vote</p>
+				<div className="flex space-x-10 justify-center my-5">
+					<button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+					Login
+					</button>
+					<button className="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
+					Sign up
+					</button>
+				</div>
+			</div>
+			<div className="text-center bg-green-600 text-white py-5">
+				<h3>Initiate Your First Election Journey Today</h3>
+				<p>Experience the Power of Votex - Unmatched Online Voting Software. Witness its Brilliance Firsthand.</p>
+					<button className="bg-gray-100 text-black font-bold rounded py-2 px-4 mt-5">Get started</button>
+			</div>
+		</div>
+		<footer className="bg-gray-900 text-white py-5">
+			<div className="flex-col text-center">
+							<Image
+							src="/logo.png"
+							alt="votex logo"
+							width={100}
+							height={100}
+							className="mx-auto"
+							/>
+							<p className="text-sm">Your secure online app</p>
+			</div>
+			<div className="flex space-x-4 justify-center py-5">
+							<Image
+							src="/ig.png"
+							alt="votex logo"
+							width={10}
+							height={10}
+							/>
+							<Image
+							src="/fb.png"
+							alt="votex logo"
+							width={10}
+							height={10}
+							/>
+							<Image
+							src="/x.png"
+							alt="votex logo"
+							width={10}
+							height={10}
+							/>
+							<Image
+							src="/wa.png"
+							alt="votex logo"
+							width={10}
+							height={10}
+							/>
+			</div>
+		</footer>
 	</main>
 	</>
   );
