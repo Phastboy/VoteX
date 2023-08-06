@@ -13,19 +13,20 @@ export default function Home() {
 		<link rel="icon" href="/logo.svg" />
 	</Head>
 	<main className="">
-		{/*<header className="">
+		<div className="bg-[url('/bg-top.png')] bg-cover bg-gray-900">
+		<header className="flex space-x-20 p-5">
           <div >
               <Link href="/" className="">
                 <Image src="/logo.svg"
                 alt="VoteX logo"
-					      height={200}
+					      height={100}
 					      width={144}
-					      className='float-left p-10'
+					      className='float-left'
                 />
               </Link>
             </div>
-            <Menu/>{/*
-          <nav className="float-right space-x-4 p-10"> 
+            <Menu/>
+          {/*<nav className="float-right space-x-4 p-10"> 
             {[
               ['Pricing', '/pricing'],
               ['Reviews', '/reviews'],
@@ -35,10 +36,10 @@ export default function Home() {
             ].map(([title, url]) => (
             <Link href={url} className="">{title}</Link>
             ))}
-          </nav>
-        </header>*/}
-			<div className="bg-[url('/bg-top.png')] bg-gray-900 text-white">
-				<div className="flex py-2 my-10">
+          </nav>*/}
+        </header>
+			<div className="  text-white">
+				<div className="flex py-5">
 					<div className="flex-col">
 						<h3>
 						<span className="font-semibold">Vote anytime, anywhere with </span>
@@ -50,7 +51,7 @@ export default function Home() {
 							/>
 							: YOUR SECURE ONLINE VOTING APP
 						</h3>
-						<p className="text-sm">
+						<p>
 						Cast your vote anytime, anywhere with confidence. Simple, secure, and ready to empower your voice. Register now and make a difference!
 						</p>
 					</div>
@@ -63,7 +64,8 @@ export default function Home() {
 					/>
 				</div>
 			</div>
-		<div className="flex flex-col mx-auto text-center mb-5">
+			</div>
+		<div className="flex flex-col mx-auto text-center space-y-8 mb-5">
 			<div className="flex flex-col text-center mx-auto ">
 				<h2>Putting Your Needs First: The Ultimate Online Voting System</h2>
 				<p>Discover a comprehensive range of or he voting software goons, from secure polling software to managing corales virtual voting events, all designet to exceed your expectations</p>
