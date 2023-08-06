@@ -180,7 +180,7 @@ export default function Home() {
 					<button className="bg-gray-100 text-black font-bold rounded py-2 px-4 mt-5">Get started</button>
 			</div>
 		</div>
-		<footer className="bg-gray-900 text-white py-5">
+		<footer className="bg-gray-900 text-white py-5 text-center">
 			<div className="flex-col text-center">
 							<Image
 							src="/logo.png"
@@ -258,6 +258,7 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
+			<p className="pt-5">VoteX, Copyright &copy; 2023</p>
 		</footer>
 	</main>
 	</>
