@@ -195,26 +195,26 @@ export default function Home() {
 							<Image
 							src="/ig.png"
 							alt="votex logo"
-							width={10}
-							height={10}
+							width={15}
+							height={15}
 							/>
 							<Image
 							src="/fb.png"
 							alt="votex logo"
-							width={10}
-							height={10}
+							width={15}
+							height={15}
 							/>
 							<Image
 							src="/x.png"
 							alt="votex logo"
-							width={10}
-							height={10}
+							width={15}
+							height={15}
 							/>
 							<Image
 							src="/wa.png"
 							alt="votex logo"
-							width={10}
-							height={10}
+							width={15}
+							height={15}
 							/>
 			</div>
 		</footer>
