@@ -40,8 +40,8 @@ export default function Home() {
 			<div className="bg-[url('/bg-top.png')] bg-gray-900 text-white">
 				<div className="flex py-2 my-10">
 					<div className="flex-col">
-						<h3 className="font-semibold">
-						Vote anytime, anywhere with 
+						<h3>
+						<span className="font-semibold">Vote anytime, anywhere with </span>
 							<Image
 							src="/logo.png"
 							alt="votex logo"
@@ -63,7 +63,7 @@ export default function Home() {
 					/>
 				</div>
 			</div>
-		<div className="flex flex-col mx-auto text-center space-y-10 mb-5">
+		<div className="flex flex-col mx-auto text-center mb-5">
 			<div className="flex flex-col text-center mx-auto ">
 				<h2>Putting Your Needs First: The Ultimate Online Voting System</h2>
 				<p>Discover a comprehensive range of or he voting software goons, from secure polling software to managing corales virtual voting events, all designet to exceed your expectations</p>
@@ -154,7 +154,7 @@ export default function Home() {
 				<button className="bg-gray-100 text-black font-bold rounded py-2 mt-5">Learn more ...</button>
 			</div>
 		</div>
-		<div className="flex flex-col py-10 space-y-4">
+		<div className="flex flex-col py-10 ">
 			<div className="text-center bg-green-100 py-5">
 				<Image 
 					src="/mac_book.png"
@@ -165,7 +165,7 @@ export default function Home() {
 				/>
 				<h3>Empower Your Voice: Introducing VoteX Online Voting App</h3>
 				<p>Fostering leadership through every vote</p>
-				<div className="flex space-x-10 justify-center my-5">
+				<div className="flex space-x-10 justify-center">
 					<button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
 					Login
 					</button>
@@ -174,13 +174,13 @@ export default function Home() {
 					</button>
 				</div>
 			</div>
-			<div className="text-center bg-green-600 text-white py-5">
+			<div className="text-center bg-green-600 text-white py-5 h-full">
 				<h3>Initiate Your First Election Journey Today</h3>
 				<p>Experience the Power of Votex - Unmatched Online Voting Software. Witness its Brilliance Firsthand.</p>
 					<button className="bg-gray-100 text-black font-bold rounded py-2 px-4 mt-5">Get started</button>
 			</div>
 		</div>
-		<footer className="bg-gray-900 text-white py-5 text-center">
+		<footer className="bg-gray-900 text-white py-5 text-center h-full">
 			<div className="flex-col text-center">
 							<Image
 							src="/logo.png"
@@ -218,8 +218,8 @@ export default function Home() {
 							/>
 			</div>
 			<div className="flex space-x-8 justify-center">
-				<div className="flex-col space-y-2">
-					<div className="flex-col space-y-2 my-5 py-5">
+				<div className="flex-col">
+					<div className="flex-col my-5 py-5">
 						<h4>What we do</h4>
 						<div className="text-sm h-full">
 							<p>Features</p>
@@ -229,7 +229,7 @@ export default function Home() {
 							<p>For private Election</p>
 						</div>
 					</div>
-					<div className="flex-col space-y-2">
+					<div className="flex-col">
 						<h4>Use VoteX</h4>
 						<div className="text-sm h-full">
 							<p>Iphone</p>
@@ -238,8 +238,8 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-				<div className="flex-col space-y-4">
-					<div className="flex-col space-y-2 my-5 py-5">
+				<div className="flex-col">
+					<div className="flex-col my-5 py-5">
 						<h4>Who we are</h4>
 						<div className="text-sm h-full">
 							<p>About us</p>
@@ -248,7 +248,7 @@ export default function Home() {
 							<p>Privacy</p>
 						</div>
 					</div>
-					<div className="flex-col space-y-2 my-5 py-5">
+					<div className="flex-col my-5 py-5">
 						<h4>Need help?</h4>
 						<div className="text-sm h-full">
 							<p>Contact us</p>
