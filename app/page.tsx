@@ -12,8 +12,8 @@ export default function Home() {
 		<meta name="description" content="online voting system" />
 		<link rel="icon" href="/logo.svg" />
 	</Head>
-	<main className="bg-black">
-		<header className="">
+	<main className="">
+		{/*<header className="">
           <div >
               <Link href="/" className="">
                 <Image src="/logo.svg"
@@ -35,102 +35,125 @@ export default function Home() {
             ].map(([title, url]) => (
             <Link href={url} className="">{title}</Link>
             ))}
-          </nav>*/}
-        </header>
-		<div className="flex flex-col items-center pb-10">
-			<div className="bg-[url('/bg-top.png')]">
-			<div>
-				<h2>
-					Put your needs first:
-				</h2>
-				<p>epistle</p>
-			</div>
-			<div>
-				<p>
-					Discover comprehensive range
-				</p>
-			</div>
-			<div className=''>
-				<Image 
+          </nav>
+        </header>*/}
+			<div className="bg-[url('/bg-top.png')] bg-gray-900 text-white">
+				<div className="flex py-2 my-10">
+					<div className="flex-col">
+						<h2>
+						Vote anytime, anywhere with 
+							<Image
+							src="/logo.png"
+							alt="votex logo"
+							width={100}
+							height={100}
+							/>
+						</h2>
+						<h5 >
+							: YOUR SECURE ONLINE VOTING APP
+						</h5>
+						<p>
+						Cast your vote anytime, anywhere with confidence. Simple, secure, and ready to empower your voice. Register now and make a difference!
+						</p>
+					</div>
+					<Image 
 					src="/cast_vote.png"
 					width={100}
 					height={100}
 					alt="votex logo"
-				/>
+					className="float-right"
+					/>
+				</div>
 			</div>
+		<div className="flex flex-col mx-auto text-center space-y-10 mb-10">
+			<div className="flex flex-col text-center mx-auto mb-10">
+				<h2>Putting Your Needs First: The Ultimate Online Voting System</h2>
+				<p>Discover a comprehensive range of or he voting software goons, from secure polling software to managing corales virtual voting events, all designet to exceed your expectations</p>
 			</div>
-			<div>
+			<div className="flex flex-col text-center">
 				<Image 
 					src="/register.png"
 					width={100}
 					height={100}
 					alt="votex logo"
+					className="mx-auto"
 				/>
-				<h1>
+				<h3>
 					Convenient Onboarding
-				</h1>
+				</h3>
+				<p>Quick and hassle free registration to get you started.</p>
 			</div>
-			<div>
+			<div className="flex flex-col mx-auto">
 				<Image 
 					src="/Vector.png"
 					width={100}
 					height={100}
 					alt="votex logo"
+					className="mx-auto"
 				/>
-				<h1>
+				<h3>
 					Rock solid security
-				</h1>
+				</h3>
+				<p>Advanced encryption and authentication to protect your vote.</p>
 			</div>
-			<div>
+			<div className="flex flex-col mx-auto">
 				<Image 
 					src="/carbon_result.png"
 					width={100}
 					height={100}
 					alt="votex logo"
+					className="mx-auto"
 				/>
-				<h1>
+				<h3>
 					Real-time results
-				</h1>
+				</h3>
+				<p>Stay informed with live updates on election outcomes.</p>
 			</div>
-			<div>
+			<div className="flex flex-col mx-auto">
 				<Image 
 					src="/game-icons_vote.png"
 					width={100}
 					height={100}
 					alt="votex logo"
+					className="mx-auto"
 				/>
-				<h1>
+				<h3>
 					Diverse Elections
-				</h1>
+				</h3>
+				<p>Participate in various polls and express your opinions.</p>
 			</div>
-			<div>
+			<div className="flex flex-col mx-auto">
 				<Image 
 					src="/ph_globe.png"
 					width={100}
 					height={100}
 					alt="votex logo"
+					className="mx-auto"
 				/>
-				<h1>
+				<h3>
 					universal access
-				</h1>
+				</h3>
+				<p>Vote from anywhere around the globe, 24/7</p>
 			</div>
-			<div>
+			<div className="flex flex-col mx-auto">
 				<Image 
 					src="/material-symbols_support.png"
 					width={100}
 					height={100}
 					alt="votex logo"
+					className="mx-auto"
 				/>
-				<h1>
+				<h3>
 					Exceptional support
-				</h1>
+				</h3>
+				<p>Questions or need help? Our support team respond within 10 minutes during business hours.</p>
 			</div>
 		</div>
 		<div>
 			<div>
-				<h1>
+				<h3>
 					Initiate your first election journey
-				</h1>
+				</h3>
 			</div>
 		</div>
 	</main>
