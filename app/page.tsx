@@ -16,7 +16,7 @@ export default function Home() {
 	<main className="">
 		<div className="bg-[url('/bg-top.png')] bg-auto md:h-screen lg:h-screen bg-gray-900">
 		<header className="flex flex-wrap space-x-0 p-5 md:space-x-20">
-          <div className='space-y-4'>
+          <div >
               <Link href="/" className="">
                 <Image src="/logo.svg"
                 alt="VoteX logo"
@@ -37,7 +37,7 @@ export default function Home() {
             		<Link href={url} className="rounded-lg px-3 py-2 text-white font-medium hover:bg-slate-100 hover:text-slate-900">{title}</Link>
             	))}
         	</nav>
-		  <div>
+		  <div className="float-right justify-end md:hidden lg:hidden">
 		  	<Menu />
 		  </div>
         </header>
