@@ -62,7 +62,7 @@ export default function Home() {
 					height={300}
 					style={{width: 'auto', height: 'auto'}}
 					alt="votex logo"
-					className="float-right"
+					className="float-right overflow-hidden"
 					/>
 				</div>
 			</div>
