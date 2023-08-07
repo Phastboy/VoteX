@@ -26,7 +26,7 @@ export default function Home() {
                 />
               </Link>
             </div>
-          <nav className="flex w-full justify-center mt-4 md:w-auto md:justify-end"> 
+          <nav className="flex w-full justify-center mt-4 md:w-auto md:justify-end" id='nav'> 
             {[
               ['Pricing', '/pricing'],
               ['Reviews', '/reviews'],
@@ -37,6 +37,9 @@ export default function Home() {
             <Link href={url} className="rounded-lg px-3 py-2 text-white font-medium hover:bg-slate-100 hover:text-slate-900">{title}</Link>
             ))}
           </nav>
+		  <div>
+		  	<Menu />
+		  </div>
         </header>
 			<div className="text-white">
 				<div className="flex flex-col md:flex-row py-5">
