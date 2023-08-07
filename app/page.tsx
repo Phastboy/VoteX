@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import Menu from "./menu";
+import autoprefixer from 'autoprefixer';
 
 export default function Home() {
   return (
@@ -13,15 +14,15 @@ export default function Home() {
 		<link rel="icon" href="/logo.svg" />
 	</Head>
 	<main className="">
-		<div className="bg-[url('/bg-top.png')] bg-cover bg-gray-900">
+		<div className="bg-[url('/bg-top.png')] bg-auto h-screen bg-gray-900">
 		<header className="flex space-x-20 p-5">
           <div >
               <Link href="/" className="">
                 <Image src="/logo.svg"
                 alt="VoteX logo"
-					      height={100}
-					      width={144}
-					      className='float-left'
+				height={100}
+		    	width={144}
+				className='float-left'
                 />
               </Link>
             </div>
@@ -42,16 +43,17 @@ export default function Home() {
 				<div className="flex py-5">
 					<div className="flex-col">
 						<h3>
-						<span className="font-semibold">Vote anytime, anywhere with </span>
+							<span className="font-semibold">Vote anytime, anywhere with </span>
 							<Image
 							src="/logo.png"
 							alt="votex logo"
-							width={100}
-							height={100}
+							width={500}
+							height={500}
+							style={{width: 'auto', height: 'auto'}}
 							/>
 							: YOUR SECURE ONLINE VOTING APP
 						</h3>
-						<p>
+						<p className='pt-10'>
 						Cast your vote anytime, anywhere with confidence. Simple, secure, and ready to empower your voice. Register now and make a difference!
 						</p>
 					</div>

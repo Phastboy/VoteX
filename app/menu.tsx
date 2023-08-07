@@ -13,7 +13,7 @@ import Link from 'next/link';
 export default function Menu(){
 	return (
 		<Menubar className="float-right">
-  <MenubarMenu>
+    <MenubarMenu>
     <MenubarTrigger>Menu</MenubarTrigger>
     <MenubarContent>
       <MenubarItem>
