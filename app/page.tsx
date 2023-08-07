@@ -26,17 +26,17 @@ export default function Home() {
                 />
               </Link>
             </div>
-          <nav className="flex w-full justify-center mt-4 md:w-auto md:justify-end" id='nav'> 
-            {[
-              ['Pricing', '/pricing'],
-              ['Reviews', '/reviews'],
-              ['Contact', '/contact'],
-              ['Login', '/login'],
-              ['Sign Up', '/sign-up']
-            ].map(([title, url]) => (
-            <Link href={url} className="rounded-lg px-3 py-2 text-white font-medium hover:bg-slate-100 hover:text-slate-900">{title}</Link>
-            ))}
-          </nav>
+        	<nav className="hidden md:flex md:mt-4 md:w-auto md:justify-end lg:justify-end" id='nav'> 
+            	{[
+            		['Pricing', '/pricing'],
+            		['Reviews', '/reviews'],
+            		['Contact', '/contact'],
+        			['Login', '/login'],
+            		['Sign Up', '/sign-up']
+            	].map(([title, url]) => (
+            		<Link href={url} className="rounded-lg px-3 py-2 text-white font-medium hover:bg-slate-100 hover:text-slate-900">{title}</Link>
+            	))}
+        	</nav>
 		  <div>
 		  	<Menu />
 		  </div>
