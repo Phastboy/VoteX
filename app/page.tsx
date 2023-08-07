@@ -31,8 +31,8 @@ export default function Home() {
             		['Pricing', '/pricing'],
             		['Reviews', '/reviews'],
             		['Contact', '/contact'],
-        			['Login', '/login'],
-            		['Sign Up', '/sign-up']
+        			['Login', '/auth/login'],
+            		['Sign Up', '/auth/sign-up']
             	].map(([title, url]) => (
             		<Link href={url} className="rounded-lg px-3 py-2 text-white font-medium hover:bg-slate-100 hover:text-slate-900">{title}</Link>
             	))}
