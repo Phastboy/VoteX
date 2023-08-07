@@ -15,7 +15,7 @@ export default function Home() {
 	</Head>
 	<main className="">
 		<div className="bg-[url('/bg-top.png')] bg-auto h-screen bg-gray-900">
-		<header className="flex space-x-20 p-5">
+		<header className="flex flex-wrap space-x-0 p-5 md:space-x-20">
           <div className='space-y-4'>
               <Link href="/" className="">
                 <Image src="/logo.svg"
@@ -26,7 +26,7 @@ export default function Home() {
                 />
               </Link>
             </div>
-          <nav className="float-right space-x-4 p-10"> 
+          <nav className="flex w-full justify-center mt-4 md:w-auto md:justify-end"> 
             {[
               ['Pricing', '/pricing'],
               ['Reviews', '/reviews'],
@@ -38,9 +38,9 @@ export default function Home() {
             ))}
           </nav>
         </header>
-			<div className="  text-white">
-				<div className="flex py-5">
-					<div className="flex-col p-10">
+			<div className="text-white">
+				<div className="flex flex-col md:flex-row py-5">
+					<div className="p-10 md:w-1/2">
 						<h3>
 							<span className="font-semibold">Vote anytime, anywhere with </span>
 							<Image
@@ -62,7 +62,7 @@ export default function Home() {
 					height={300}
 					style={{width: 'auto', height: 'auto'}}
 					alt="votex logo"
-					className="float-right overflow-hidden"
+					className="mt-10 md:w-1/2 md:mt-0 mx-auto"
 					/>
 				</div>
 			</div>
