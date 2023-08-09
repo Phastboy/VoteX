@@ -22,7 +22,7 @@ export default function Home() {
                 alt="VoteX logo"
 				height={100}
 		    	width={144}
-				className='float-left'
+				className='float-left transition-transform hover:scale-105'
                 />
               </Link>
             </div>
@@ -34,7 +34,9 @@ export default function Home() {
         			['Login', '/auth/login'],
             		['Sign Up', '/auth/sign-up']
             	].map(([title, url]) => (
-            		<Link href={url} className="rounded-lg px-3 py-2 text-white font-medium hover:bg-slate-100 hover:text-slate-900">{title}</Link>
+            		<Link href={url} 
+					className="rounded-lg px-3 py-2 text-white font-medium hover:bg-slate-100 hover:text-slate-900 transition-colors">
+						{title}</Link>
             	))}
         	</nav>
 		  <div className="float-right justify-end md:hidden lg:hidden">
@@ -57,7 +59,7 @@ export default function Home() {
 						<p className='pt-10'>
 						Cast your vote anytime, anywhere with confidence. Simple, secure, and ready to empower your voice. Register now and make a difference!
 						</p>
-						<button className="bg-gray-100 text-black font-bold rounded py-2 px-4 mt-5">Get started</button>
+						<Link href='/auth/sign-up'><button className="bg-gray-100 text-black font-bold rounded py-2 px-4 mt-5">Get started</button></Link>
 					</div>
 					<Image 
 					src="/cast_vote.png"
@@ -158,7 +160,7 @@ export default function Home() {
 			<div className="flex flex-col text-center mx-auto">
 				<h2>View all Features & Capabilities</h2>
 				<p>Unleash the full potential of our platform! Delve into a world of powerful features and capabilities that make online voting a seamless and rewarding experience for all.</p>
-				<button className="bg-gray-100 text-black font-bold rounded py-2 mt-5">Learn more ...</button>
+				<button className="bg-gray-100 text-black font-bold rounded py-2 px-2 mt-5">Learn more ...</button>
 			</div>
 		</div>
 		<div className="flex flex-col py-10 ">
@@ -173,18 +175,18 @@ export default function Home() {
 				<h3>Empower Your Voice: Introducing VoteX Online Voting App</h3>
 				<p>Fostering leadership through every vote</p>
 				<div className="flex space-x-10 justify-center p-10">
-					<button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+					<Link href='/auth/login'><button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
 					Login
-					</button>
-					<button className="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
+					</button></Link>
+					<Link href='/auth/sign-up'><button className="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
 					Sign up
-					</button>
+					</button></Link>
 				</div>
 			</div>
 			<div className="text-center bg-green-600 text-white py-5 h-full">
 				<h3>Initiate Your First Election Journey Today</h3>
 				<p>Experience the Power of Votex - Unmatched Online Voting Software. Witness its Brilliance Firsthand.</p>
-					<button className="bg-gray-100 text-black font-bold rounded py-2 px-4 mt-5">Get started</button>
+				<Link href='/auth/sign-up'><button className="bg-gray-100 text-black font-bold rounded py-2 px-4 mt-5">Get started</button></Link>
 			</div>
 		</div>
 		<footer className="bg-gray-900 text-white py-5 text-center h-full">
