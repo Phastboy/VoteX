@@ -9,7 +9,7 @@ export default function Home(){
 				<title>Your feed</title>
 				<meta name='description' content='recent activities'/>
 			</Head>
-			<main>
+			<main className="text-center py-10">
 			<h3 className="p-3">Good morning username</h3>
 			<h3 className="px-3">recent poll</h3>
 			<div className='container mx-auto px-4 md:px-12 justify-center'>
