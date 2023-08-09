@@ -77,6 +77,7 @@ export default function Home() {
 				<h2>Putting Your Needs First: The Ultimate Online Voting System</h2>
 				<p>Discover a comprehensive range of or he voting software goons, from secure polling software to managing corales virtual voting events, all designet to exceed your expectations</p>
 			</div>
+			<div>
 			<div className="flex flex-col text-center">
 				<Image 
 					src="/register.png"
@@ -154,6 +155,7 @@ export default function Home() {
 					Exceptional support
 				</h3>
 				<p>Questions or need help? Our support team respond within 10 minutes during business hours.</p>
+			</div>
 			</div>
 		</div>
 		<div className="bg-gray-900 p-5 text-white">
