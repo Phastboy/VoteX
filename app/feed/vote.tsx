@@ -1,38 +1,38 @@
-type PollProps = {
-    totalVotes: number;
-    messiVotes: number;
-    ronaldoVotes: number;
+import Image from "next/image";
+
+type VoteProps = {
+    title: string;
+    description: string;
+    imageSrc: string;
+    onClick: () => void;
 };
 
-export default function Poll({ totalVotes, messiVotes, ronaldoVotes }: PollProps) {
-    const calculatePercentage = (votes: number) => {
-        return (votes / totalVotes) * 100;
-    };
-
+export default function Vote({ title, description, imageSrc, onClick }: VoteProps) {
     return (
-        <div className="w-full md:w-1/2 lg:w-1/3 max-w-sm p-6 m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div className="text-center">
-                <h5 className="pt-5 mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                    Messi or Ronaldo?
+        <div className="flex flex-col items-center m-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <p>
+                <Image className="rounded-t-lg text-center p-5" 
+                    src={imageSrc}
+                    height={200}
+                    width={200}
+                    alt={`${title} avatar`} />
+            </p>
+            <div className="p-5">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {title}
                 </h5>
-            </div>
-            <div className="flex flex-col justify-center mt-4 space-y-3 md:mt-6">
-                <div className="relative px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600">
-                    <div className="h-4 bg-blue-400 dark:bg-blue-500 rounded-md"></div>
-                    <div className="absolute top-0 left-0 h-4 bg-blue-700 dark:bg-blue-600 rounded-md" style={{ width: `${calculatePercentage(messiVotes)}%` }}></div>
-                    <div className="flex items-center justify-between mt-1">
-                        <p className="block leading-6">Messi</p>
-                        <p className="text-gray-600 dark:text-gray-400">{messiVotes} votes</p>
-                    </div>
-                </div>
-                <div className="relative px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600">
-                    <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded-md"></div>
-                    <div className="absolute top-0 left-0 h-4 bg-gray-500 dark:bg-gray-600 rounded-md" style={{ width: `${calculatePercentage(ronaldoVotes)}%` }}></div>
-                    <div className="flex items-center justify-between mt-1">
-                        <p className="block leading-6">Ronaldo</p>
-                        <p className="text-gray-600 dark:text-gray-400">{ronaldoVotes} votes</p>
-                    </div>
-                </div>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    {description}
+                </p>
+                <button
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    onClick={onClick}
+                >
+                    Click to vote
+                    <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </button>
             </div>
         </div>
     );

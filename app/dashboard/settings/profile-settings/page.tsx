@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Login() {
+export default function Settings() {
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 
