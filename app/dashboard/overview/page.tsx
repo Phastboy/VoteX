@@ -16,7 +16,7 @@ export default function Overview() {
     };
 
     return (
-        <div className="flex flex-col items-center py-8">
+        <div className="flex flex-col items-center py-8 p-2">
             <div className="mb-4 space-y-4">
                 <h1 className="text-2xl font-bold">Overview</h1>
                 <div className="space-y-2">
