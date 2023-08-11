@@ -19,7 +19,7 @@ function Election() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Create Election</Button>
+        <Button variant="continue">Create Election</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
