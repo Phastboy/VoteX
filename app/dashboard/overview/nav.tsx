@@ -7,8 +7,8 @@ import { useState } from "react";
 export default function Nav() {
     const navLinks = [
         ["/dashboard/election-settings", "Settings"],
-        ["/dashboard/ballot-settings", "Ballot"],
-        ["/dashboard/voters-settings", "Voters"],
+        ["/dashboard/ballot", "Ballot"],
+        ["/dashboard/voters", "Voters"],
         ["/dashboard/preview", "Preview"],
         ["/dashboard/launch-election", "Launch"]
     ];
