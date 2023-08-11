@@ -2,6 +2,7 @@
 import { Input } from "@/components/ui/input";
 import React, { useRef } from "react";
 import { Calendar } from "lucide-react";
+import Nav from "./nav";
 
 
 export default function Overview() {
@@ -16,6 +17,7 @@ export default function Overview() {
     };
 
     return (
+        <><Nav/>
         <div className="flex flex-col items-center py-8 p-2">
             <div className="mb-4 space-y-4">
                 <h1 className="text-2xl font-bold">Overview</h1>
@@ -64,5 +66,6 @@ export default function Overview() {
                 </div>
             </div>
         </div>
+        </>
     );
 }

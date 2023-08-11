@@ -14,7 +14,7 @@ export default function Home() {
 		<link rel="icon" href="/logo.svg" />
 	</Head>
 	<main className="">
-		<div className="bg-[url('/bg-top.png')] bg-auto md:h-screen lg:h-screen bg-gray-900">
+		<div className="bg-[url('/bg-top.png')] bg-auto bg-gray-900">
             <header className="flex flex-wrap space-x-0 p-5 md:space-x-20">
         		<div >
               		<Link href="/" className="">

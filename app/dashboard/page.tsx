@@ -55,7 +55,7 @@ function Election() {
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Continue</Button>
+          <Button type="submit" variant="continue">Continue</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
