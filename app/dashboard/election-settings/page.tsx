@@ -4,9 +4,13 @@ import { Selection } from "./header";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {Nav} from '../overview/nav';
-import { GeneralElectionSettings, 
-		ElectionResultSettings 
-		} from "./election-settings";
+import { GeneralElectionSettings,
+    ElectionDatesSettings, 
+    ElectionEmailSettings, 
+    ElectionMessagesSettings, 
+    ElectionVotersSettings, 
+    ElectionResultSettings, 
+    ElectionDuplicationSettings } from "./election-settings";
 
 
 export default function ElectionSettings() {
