@@ -1,26 +1,31 @@
 'use client'
-import * as React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Selection } from "./header";
-import { GeneralElectionSettings, ElectionDatesSettings, ElectionEmailSettings, ElectionMessagesSettings, ElectionVotersSettings, ElectionResultSettings, ElectionDuplicationSettings } from "./election-settings";
-import { Nav } from '../overview/nav';
+import { GeneralElectionSettings, 
+    ElectionDatesSettings, 
+    ElectionEmailSettings, 
+    ElectionMessagesSettings, 
+    ElectionVotersSettings, 
+    ElectionResultSettings, 
+    ElectionDuplicationSettings } from "./election-settings";
+import { Nav } from "../overview/nav";
 
 export default function ElectionSettings() {
-    const [selectedSetting, setSelectedSetting] = useState('General');
+    const [selectedSetting, setSelectedSetting] = useState("General");
 
     const renderSelectedSetting = () => {
         switch (selectedSetting) {
-            case 'Dates':
+            case "Dates":
                 return <ElectionDatesSettings />;
-            case 'Voters':
+            case "Voters":
                 return <ElectionVotersSettings />;
-            case 'Messages':
+            case "Messages":
                 return <ElectionMessagesSettings />;
-            case 'Email':
+            case "Email":
                 return <ElectionEmailSettings />;
-            case 'Result':
+            case "Result":
                 return <ElectionResultSettings />;
-            case 'Duplicate':
+            case "Duplicate":
                 return <ElectionDuplicationSettings />;
             default:
                 return <GeneralElectionSettings />;
@@ -31,13 +36,13 @@ export default function ElectionSettings() {
         <>
             <Nav />
             <div className="p-4 space-y-6">
-                <div>
+                <div className="flex justify-center items-center">
                     <Selection setSelectedSetting={setSelectedSetting} />
                 </div>
-                <div>
-                    <h1>{`The ${selectedSetting} Setting`}</h1>
+                <div className="text-center">
+                    <h1 className="text-2xl font-semibold">{`The ${selectedSetting} Setting`}</h1>
                 </div>
-                {renderSelectedSetting()}
+                <div>{renderSelectedSetting()}</div>
             </div>
         </>
     );
