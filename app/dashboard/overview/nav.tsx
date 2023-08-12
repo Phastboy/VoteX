@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import { X } from "lucide-react";
 import { useState } from "react";
 
-export default function Nav() {
+export function Nav() {
     const navLinks = [
         ["/dashboard/election-settings", "Settings"],
         ["/dashboard/ballot", "Ballot"],

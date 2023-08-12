@@ -2,7 +2,7 @@
 import { Input } from "@/components/ui/input";
 import React, { useRef, useState } from "react";
 import { Calendar } from "lucide-react";
-import Nav from "./nav";
+import {Nav} from "./nav";
 
 
 export default function Overview() {

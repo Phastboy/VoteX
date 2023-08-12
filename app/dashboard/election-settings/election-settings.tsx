@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { DatePickerWithPresets } from "../date";
 
-export function GeneralSettings() {
+export function GeneralElectionSettings() {
     return (
         <form>
             <div>
@@ -26,7 +26,7 @@ export function GeneralSettings() {
     );
 }
 
-export default function ElectionDates() {
+export function ElectionDatesSettings() {
     return (
         <form>
             <div>
@@ -48,7 +48,7 @@ export default function ElectionDates() {
     );
 }
 
-export function VotersSettings() {
+export function ElectionVotersSettings() {
     return (
         <form>
             <div>
@@ -70,7 +70,7 @@ export function VotersSettings() {
     );
 }
 
-export function ElectionMessages() {
+export function ElectionMessagesSettings() {
     return (
         <form>
             <div>
