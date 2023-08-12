@@ -10,11 +10,11 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-export function Visibility() {
+export function Selection() {
   return (
     <Select>
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="General settings" />
+        <SelectValue placeholder="General" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
