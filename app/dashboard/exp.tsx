@@ -1,20 +1,22 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
 
 const user = {
-  name: 'user',
-  email: 'student@example.com',
+  name: 'Tom Cook',
+  email: 'tom@example.com',
   imageUrl:
-    '/avatar.png',
+    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
-  { name: 'Settings', href: '/dashboard/election-settings', current: false }
+  { name: 'Team', href: '#', current: false },
+  { name: 'Projects', href: '#', current: false },
+  { name: 'Calendar', href: '#', current: false },
+  { name: 'Reports', href: '#', current: false },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '/dashboard/settings' },
+  { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' },
 ]
@@ -23,22 +25,29 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Nav() {
+export default function Example() {
   return (
     <>
+      {/*
+        This example requires updating your template:
+
+        ```
+        <html class="h-full bg-gray-100">
+        <body class="h-full">
+        ```
+      */}
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-green-700">
+        <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <Image
-                        src="/black.svg"
-                        height={80}
-                        width={100}
-                        alt="VoteX Logo"
+                      <img
+                        className="h-8 w-8"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                        alt="Your Company"
                       />
                     </div>
                     <div className="hidden md:block">
@@ -49,8 +58,8 @@ export default function Nav() {
                             href={item.href}
                             className={classNames(
                               item.current
-                                ? 'bg-green-900 text-white'
-                                : 'hover:text-gray-300 hover:bg-green-700 text-white',
+                                ? 'bg-gray-900 text-white'
+                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                               'rounded-md px-3 py-2 text-sm font-medium'
                             )}
                             aria-current={item.current ? 'page' : undefined}

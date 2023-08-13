@@ -1,4 +1,5 @@
 "use client"
+import Nav from './nav';
 import React, {useState} from 'react';
 import Image from 'next/image';
 import { DatePickerWithPresets } from './date';
@@ -165,6 +166,7 @@ function Poll() {
 export default function Welcome() {
   return (
     <main>
+      <Nav/>
       <div className="text-center py-10">
         <h1>Welcome to VoteX!</h1>
         <p>Cast your vote, create elections, and share your opinions through polls.</p>
