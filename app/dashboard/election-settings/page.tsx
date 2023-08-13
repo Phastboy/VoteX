@@ -1,25 +1,34 @@
 "use client";
-import React, { use, useState } from "react";
-import { Selection } from "./header";
-import { GeneralElectionSettings, ElectionDatesSettings, ElectionEmailSettings, ElectionMessagesSettings, ElectionVotersSettings, ElectionResultSettings, ElectionDuplicationSettings } from "./election-settings";
-import { Nav } from "../overview/nav";
+import React, { useState } from 'react';
+import { Selection } from './selection';
+import { ElectionSetting } from './index';
+import {
+    ElectionDatesSettings,
+    ElectionEmailSettings,
+    ElectionMessagesSettings,
+    ElectionVotersSettings,
+    ElectionResultSettings,
+    ElectionDuplicationSettings,
+    GeneralElectionSettings,
+} from './election-settings';
+import { Nav } from '../overview/nav';
 
 export default function ElectionSettings() {
-    const [selectedSetting, setSelectedSetting] = useState("General");
+    const [selectedSetting, setSelectedSetting] = useState(ElectionSetting.General);
 
     const renderSelectedSetting = () => {
         switch (selectedSetting) {
-            case "Dates":
+            case ElectionSetting.Dates:
                 return <ElectionDatesSettings />;
-            case "Voters":
+            case ElectionSetting.Voters:
                 return <ElectionVotersSettings />;
-            case "Messages":
+            case ElectionSetting.Messages:
                 return <ElectionMessagesSettings />;
-            case "Email":
+            case ElectionSetting.Email:
                 return <ElectionEmailSettings />;
-            case "Result":
+            case ElectionSetting.Result:
                 return <ElectionResultSettings />;
-            case "Duplicate":
+            case ElectionSetting.Duplicate:
                 return <ElectionDuplicationSettings />;
             default:
                 return <GeneralElectionSettings />;
@@ -31,7 +40,10 @@ export default function ElectionSettings() {
             <Nav />
             <div className="p-4 md:py-8 md:px-10 lg:px-16 xl:px-20 space-y-6">
                 <div className="flex justify-center items-center">
-                    <Selection setSelectedSetting={setSelectedSetting} />
+                    <Selection
+                        selectedSetting={selectedSetting}
+                        setSelectedSetting={setSelectedSetting}
+                    />
                 </div>
                 <div className="text-center">
                     <h1 className="text-2xl font-semibold">{`The ${selectedSetting} Setting`}</h1>
@@ -41,3 +53,4 @@ export default function ElectionSettings() {
         </>
     );
 }
+
