@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
@@ -9,9 +10,11 @@ export function Selection({ setSelectedSetting }: SelectionProps) {
     const [selectedItem, setSelectedItem] = useState('');
 
     const handleSelect = (value: string) => {
-        setSelectedItem(value);
-        setSelectedSetting(value);
+      console.log('Selected value:', value);
+      setSelectedItem(value);
+      setSelectedSetting(value);
     };
+  
 
     return (
         <Select>

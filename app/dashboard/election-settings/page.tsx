@@ -1,13 +1,7 @@
-'use client'
-import React, { useState } from "react";
+"use client";
+import React, { use, useState } from "react";
 import { Selection } from "./header";
-import { GeneralElectionSettings, 
-    ElectionDatesSettings, 
-    ElectionEmailSettings, 
-    ElectionMessagesSettings, 
-    ElectionVotersSettings, 
-    ElectionResultSettings, 
-    ElectionDuplicationSettings } from "./election-settings";
+import { GeneralElectionSettings, ElectionDatesSettings, ElectionEmailSettings, ElectionMessagesSettings, ElectionVotersSettings, ElectionResultSettings, ElectionDuplicationSettings } from "./election-settings";
 import { Nav } from "../overview/nav";
 
 export default function ElectionSettings() {
@@ -35,7 +29,7 @@ export default function ElectionSettings() {
     return (
         <>
             <Nav />
-            <div className="p-4 space-y-6">
+            <div className="p-4 md:py-8 md:px-10 lg:px-16 xl:px-20 space-y-6">
                 <div className="flex justify-center items-center">
                     <Selection setSelectedSetting={setSelectedSetting} />
                 </div>

@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
@@ -20,8 +21,8 @@ export function Nav() {
     };
 
     return (
-        <nav className="flex flex-wrap items-center justify-between p-6 bg-green-700 text-white">
-            <div className="mb-6">
+        <nav className="flex flex-wrap items-center justify-between p-2 bg-green-700 text-white">
+            <div className="mb-4">
                 <Link href="/" className="text-center">
                     <Image 
                         src="/black.svg"
