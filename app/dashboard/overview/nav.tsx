@@ -27,8 +27,8 @@ export function Nav() {
                     <Image 
                         src="/black.svg"
                         alt="VoteX logo"
-                        height={100}
-                        width={144}
+                        height={80}
+                        width={120}
                     />
                 </Link>
             </div>
