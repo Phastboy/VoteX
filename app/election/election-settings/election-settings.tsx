@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Nav } from './nav';
+import { Nav } from '../nav';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Selection } from './selection';
 import { ElectionSetting } from './index';
-import { DatePickerWithPresets } from "../dashboard/date";
+import { DatePickerWithPresets } from "../../dashboard/date";
 
 export function GeneralElectionSettings() {
     return (

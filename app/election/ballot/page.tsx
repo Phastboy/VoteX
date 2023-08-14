@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import { SettingsPage } from './settings'
+import Ballot from './ballot'
 
 const user = {
   name: 'user',
@@ -12,8 +12,8 @@ const user = {
     '/avatar.png',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Settings', href: '/dashboard/election-settings', current: false }
+  { name: 'Dashboard', href: '/dashboard', current: false },
+  { name: 'Settings', href: '/election-settings', current: true }
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '/dashboard/settings' },
@@ -188,7 +188,7 @@ export default function Nav() {
         </header>
         <main>
                     <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                        <SettingsPage />
+                        <Ballot/>
                     </div>
                 </main>
       </div>

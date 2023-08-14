@@ -1,5 +1,8 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 function ProfileSettings() {
     const [avatarFile, setAvatarFile] = useState(null);
@@ -9,20 +12,37 @@ function ProfileSettings() {
         setAvatarFile(file);
     };
 
+    useEffect(() => {
+        return () => {
+            if (avatarFile) {
+                URL.revokeObjectURL(avatarFile);
+            }
+        };
+    }, [avatarFile]);
+
     return (
         <>
-            <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-                <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className="flex flex-col justify-center px-6 lg:px-8">
+                <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Profile settings
                     </h2>
                     <form className="space-y-6" action="/api" method="POST">
                         <div className="flex flex-col mx-auto sm:mx-auto sm:w-full sm:max-w-sm">
-                            <label htmlFor="avatar" className="mx-auto text-sm font-medium leading-6 text-gray-900">
+                            <Label htmlFor="avatar" className="mx-auto text-sm font-medium leading-6 text-gray-900">
                                 Change avatar
-                            </label>
+                            </Label>
                             <div className="mt-2">
-                                <input
+                                {avatarFile && (
+                                    <Image
+                                        src={URL.createObjectURL(avatarFile)}
+                                        alt="Avatar Preview"
+                                        width={100}
+                                        height={100}
+                                        className="rounded-full mx-auto"
+                                    />
+                                )}
+                                <Input
                                     id="avatar"
                                     name="avatar"
                                     type="file"
@@ -30,24 +50,16 @@ function ProfileSettings() {
                                     className="hidden"
                                     onChange={handleAvatarChange}
                                 />
-                                {avatarFile && (
-                                    <Image
-                                        src={URL.createObjectURL(avatarFile)}
-                                        alt="Avatar Preview"
-                                        width={200}
-                                        height={200}
-                                    />
-                                )}
                             </div>
                         </div>
                     <div>
-                        <label 
+                        <Label 
                         htmlFor="email" 
                         className="block text-sm font-medium leading-6 text-gray-900">
                         Change email address
-                        </label>
+                        </Label>
                         <div className="mt-2">
-                            <input id="email" 
+                            <Input id="email" 
                             name="email" type="email" 
                             placeholder="newexample@gmail.com"
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
@@ -56,12 +68,12 @@ function ProfileSettings() {
                     </div>
                     <div>
                         <div className="flex items-center justify-between">
-                            <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
+                            <Label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
                             Change username
-                            </label>
+                            </Label>
                         </div>
                         <div className="mt-2">
-                            <input 
+                            <Input 
                             id="username" 
                             name="username" 
                             type="name" 
@@ -70,10 +82,10 @@ function ProfileSettings() {
                         </div>
                     </div>
                     <div className="">
-                        <button type="submit"
-                        className="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
-                           Update profile 
-                        </button>
+                        <Button type="submit"
+                            variant="continue">
+                            Update profile 
+                        </Button>
                     </div>
                 </form>
             </div>
@@ -83,22 +95,25 @@ function ProfileSettings() {
 }
 
 function SecuritySettings() {
-    return (<div>
-        <form>
+    return (<div className="flex flex-col justify-center px-6 lg:px-8">
+        <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Security settings
+        </h2>
+        <form className="space-y-4">
             <div>
-                <label htmlFor="current-password" className="block text-sm font-medium leading-6 text-gray-900">Current password</label>
-                <input id="current-password" name="current-password" type="password" autoComplete="current-password" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
+                <Label htmlFor="current-password" className="block text-sm font-medium leading-6 text-gray-900">Current password</Label>
+                <Input id="current-password" name="current-password" type="password" autoComplete="current-password" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
             </div>
             <div>
-                <label htmlFor="new-password" className="block text-sm font-medium leading-6 text-gray-900">New password</label>
-                <input id="new-password" name="new-password" type="password" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
+                <Label htmlFor="new-password" className="block text-sm font-medium leading-6 text-gray-900">New password</Label>
+                <Input id="new-password" name="new-password" type="password" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
             </div>
             <div>
-                <label htmlFor="confirm-password" className="block text-sm font-medium leading-6 text-gray-900">Confirm password</label>
-                <input id="confirm-password" name="confirm-password" type="password" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
+                <Label htmlFor="confirm-password" className="block text-sm font-medium leading-6 text-gray-900">Confirm password</Label>
+                <Input id="confirm-password" name="confirm-password" type="password" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
             </div>
-            <div className="">
-                <button type="submit">Save</button>
+            <div className="my-5">
+                <Button type="submit" variant="continue">Save</Button>
             </div>
         </form>
     </div>
@@ -106,17 +121,20 @@ function SecuritySettings() {
 }
 
 function AppearanceSettings() {
-    return (<div>
+    return (<div className="flex flex-col justify-center px-6 lg:px-8">
+        <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Appearance settings
+        </h2>
         <form>
             <div>
-                <label htmlFor="theme" className="block text-sm font-medium leading-6 text-gray-900">Theme</label>
+                <Label htmlFor="theme" className="block text-sm font-medium leading-6 text-gray-900">Theme</Label>
                 <select id="theme" name="theme" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6">
                     <option>Light</option>
                     <option>Dark</option>
                 </select>
             </div>
-            <div className="">
-                <button type="submit">Save</button>
+            <div className="my-5">
+                <Button type="submit" variant="continue">Save</Button>
             </div>
         </form>
     </div>
@@ -124,14 +142,17 @@ function AppearanceSettings() {
 }
 
 function DeactivateAccountSettings() {
-    return (<div>
+    return (<div className="flex flex-col justify-center px-6 lg:px-8">
+        <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            Deactivate settings
+        </h2>
         <form>
             <div>
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                <input id="password" name="password" type="password" autoComplete="current-password" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
+                <Label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</Label>
+                <Input id="password" name="password" type="password" autoComplete="current-password" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
             </div>
-            <div className="">
-                <button type="submit">Deactivate</button>
+            <div className="my-5">
+                <Button type="submit" variant="continue">Deactivate</Button>
             </div>
         </form>
     </div>
@@ -147,7 +168,7 @@ function SettingsPage() {
                 <h6 onClick={() => setSelectedSetting("Profile")} className="cursor-pointer font-semibold text-sm">
                     Profile
                 </h6>
-                <h6 onClick={() => setSelectedSetting("Appearence")} className="cursor-pointer font-semibold text-sm">
+                <h6 onClick={() => setSelectedSetting("Appearance")} className="cursor-pointer font-semibold text-sm">
                     Appearance
                 </h6>
                 <h6 onClick={() => setSelectedSetting("Security")} className="cursor-pointer font-semibold text-sm">
@@ -159,10 +180,13 @@ function SettingsPage() {
             </div>
             <div className="w-3/4 p-4">
                 {selectedSetting === "Profile" && <ProfileSettings />}
+                {selectedSetting === "Appearance" && <AppearanceSettings />}
                 {selectedSetting === "Security" && <SecuritySettings />}
+                {selectedSetting === "Deactivate" && <DeactivateAccountSettings />}
+                
             </div>
         </div>
     );
 }
 
-export { ProfileSettings, AppearanceSettings, SecuritySettings, DeactivateAccountSettings, SettingsPage}
+export {SettingsPage}

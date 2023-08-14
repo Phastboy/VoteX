@@ -3,7 +3,8 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import { SettingsPage } from './settings'
+import CreateBallotPage from './add-ballot'
+
 
 const user = {
   name: 'user',
@@ -12,8 +13,8 @@ const user = {
     '/avatar.png',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Settings', href: '/dashboard/election-settings', current: false }
+  { name: 'Dashboard', href: '/dashboard', current: false },
+  { name: 'Settings', href: '/election/election-settings', current: true }
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '/dashboard/settings' },
@@ -183,15 +184,17 @@ export default function Nav() {
 
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+              {navigation.find(item => item.current)?.name || 'not yet'}
+            </h1>
           </div>
         </header>
         <main>
-                    <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                        <SettingsPage />
-                    </div>
-                </main>
+            <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+              <CreateBallotPage/>
+            </div>
+        </main>
       </div>
     </>
-  )
+  );
 }
