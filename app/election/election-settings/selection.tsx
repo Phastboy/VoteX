@@ -1,5 +1,4 @@
 import React from 'react';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ElectionSetting } from './index';
 
 interface SelectionProps {
@@ -13,20 +12,16 @@ export function Selection({ selectedSetting, setSelectedSetting }: SelectionProp
     };
 
     return (
-        <Select>
-            <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder={selectedSetting} />
-            </SelectTrigger>
-            <SelectContent>
-                <SelectGroup>
-                    {Object.values(ElectionSetting).map((setting) => (
-                        <SelectItem key={setting} value={setting} onClick={() => handleSelect(setting)}>
-                            {setting}
-                        </SelectItem>
-                    ))}
-                </SelectGroup>
-            </SelectContent>
-        </Select>
+        <select
+            value={selectedSetting}
+            onChange={(e) => handleSelect(e.target.value as ElectionSetting)}
+            className="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
+        >
+            {Object.values(ElectionSetting).map((setting) => (
+                <option key={setting} value={setting} className="py-1">
+                    {setting}
+                </option>
+            ))}
+        </select>
     );
 }
-
