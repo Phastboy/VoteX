@@ -11,23 +11,23 @@ import { DatePickerWithPresets } from "../../dashboard/date";
 export function GeneralElectionSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-        <form className='space-y-4'>
-            <div>
-                <Label>
-                    Title
-                </Label>
-                <Input/>
-            </div>
-            <div>
-                <Label>
-                    Description
-                </Label>
-                <Textarea/>
-            </div>
-            <div>
-                <Button type="submit" variant="continue">Save</Button>
-            </div>
-        </form>
+            <form className='space-y-4'>
+                <div>
+                    <Label>
+                        Title
+                    </Label>
+                    <Input/>
+                </div>
+                <div>
+                    <Label>
+                        Description
+                    </Label>
+                    <Textarea/>
+                </div>
+                <div>
+                    <Button type="submit" variant="continue">Save</Button>
+                </div>
+            </form>
         </div>
     );
 }
@@ -35,23 +35,23 @@ export function GeneralElectionSettings() {
 export function ElectionDatesSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-        <form className='space-y-4'>
-            <div className="space-x-4">
-                <Label htmlFor="start">
-                    Starting
-                </Label>
-			    <DatePickerWithPresets/>
-            </div>
-            <div className="space-x-4">
-                <Label htmlFor="stop">
-                    Ending
-                </Label>
-			    <DatePickerWithPresets/>
-            </div>
-            <div>
-                <Button type="submit" variant="continue">Save</Button>
-            </div>
-        </form>
+            <form className='space-y-4'>
+                <div className="space-x-4">
+                    <Label htmlFor="start">
+                        Starting
+                    </Label>
+                    <DatePickerWithPresets/>
+                </div>
+                <div className="space-x-4">
+                    <Label htmlFor="stop">
+                        Ending
+                    </Label>
+                    <DatePickerWithPresets/>
+                </div>
+                <div>
+                    <Button type="submit" variant="continue">Save</Button>
+                </div>
+            </form>
         </div>
     );
 }
@@ -59,23 +59,23 @@ export function ElectionDatesSettings() {
 export function ElectionVotersSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-        <form className='space-y-4'>
-            <div>
-                <Label>
-                    Minimum number of vote
-                </Label>
-                <Input/>
-            </div>
-            <div>
-                <Label>
-                    Maximum number of vote
-                </Label>
-                <Input/>
-            </div>
-            <div>
-                <Button type="submit" variant="continue">Save</Button>
-            </div>
-        </form>
+            <form className='space-y-4'>
+                <div>
+                    <Label>
+                        Minimum number of vote
+                    </Label>
+                    <Input/>
+                </div>
+                <div>
+                    <Label>
+                        Maximum number of vote
+                    </Label>
+                    <Input/>
+                </div>
+                <div>
+                    <Button type="submit" variant="continue">Save</Button>
+                </div>
+            </form>
         </div>
     );
 }
@@ -83,23 +83,23 @@ export function ElectionVotersSettings() {
 export function ElectionMessagesSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-        <form className='space-y-4'>
-            <div>
-                <Label>
-                    Login instruction
-                </Label>
-                <Textarea/>
-            </div>
-            <div>
-                <Label>
-                    Confirmation message
-                </Label>
-                <Textarea/>
-            </div>
-            <div>
-                <Button type="submit" variant="continue">Save</Button>
-            </div>
-        </form>
+            <form className='space-y-4'>
+                <div>
+                    <Label>
+                        Login instruction
+                    </Label>
+                    <Textarea/>
+                </div>
+                <div>
+                    <Label>
+                        Confirmation message
+                    </Label>
+                    <Textarea/>
+                </div>
+                <div>
+                    <Button type="submit" variant="continue">Save</Button>
+                </div>
+            </form>
         </div>
     );
 }
