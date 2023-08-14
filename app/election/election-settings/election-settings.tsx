@@ -11,14 +11,14 @@ import { DatePickerWithPresets } from "../../dashboard/date";
 export function GeneralElectionSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-        <form>
-            <div className="mb-4">
+        <form className='space-y-4'>
+            <div>
                 <Label>
                     Title
                 </Label>
                 <Input/>
             </div>
-            <div className="mb-4">
+            <div>
                 <Label>
                     Description
                 </Label>
@@ -35,14 +35,14 @@ export function GeneralElectionSettings() {
 export function ElectionDatesSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-        <form>
-            <div className="mb-4">
+        <form className='space-y-4'>
+            <div className="space-x-4">
                 <Label htmlFor="start">
                     Starting
                 </Label>
 			    <DatePickerWithPresets/>
             </div>
-            <div className="mb-4">
+            <div className="space-x-4">
                 <Label htmlFor="stop">
                     Ending
                 </Label>
@@ -59,14 +59,14 @@ export function ElectionDatesSettings() {
 export function ElectionVotersSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-        <form>
-            <div className="mb-4">
+        <form className='space-y-4'>
+            <div>
                 <Label>
                     Minimum number of vote
                 </Label>
                 <Input/>
             </div>
-            <div className="mb-4">
+            <div>
                 <Label>
                     Maximum number of vote
                 </Label>
@@ -83,14 +83,14 @@ export function ElectionVotersSettings() {
 export function ElectionMessagesSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-        <form>
-            <div className="mb-4">
+        <form className='space-y-4'>
+            <div>
                 <Label>
                     Login instruction
                 </Label>
                 <Textarea/>
             </div>
-            <div className="mb-4">
+            <div>
                 <Label>
                     Confirmation message
                 </Label>
@@ -107,12 +107,12 @@ export function ElectionMessagesSettings() {
 export function ElectionEmailSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-            <form>
-                <div className="mb-4">
+            <form className='space-y-4'>
+                <div>
                     <Label>Confirm they are part of the allowed voter</Label>
                     <Input type="checkbox" />
                 </div>
-                <div className="mb-4">
+                <div>
                     <Label>Free login</Label>
                     <Input type="checkbox" />
                 </div>
@@ -127,16 +127,16 @@ export function ElectionEmailSettings() {
 export function ElectionResultSettings() {
     return (
         <div className="bg-white p-6 rounded shadow">
-            <form>
-                <div className="mb-4">
+            <form className='space-y-4'>
+                <div>
                     <Label>Hide result throughout the election</Label>
                     <Input type="checkbox" />
                 </div>
-                <div className="mb-4">
+                <div>
                     <Label>Realtime update</Label>
                     <Input type="checkbox" />
                 </div>
-                <div className="mb-4">
+                <div>
                     <Label>Download report</Label>
                     <Input type="checkbox" />
                 </div>
