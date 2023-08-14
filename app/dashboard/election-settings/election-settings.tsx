@@ -1,7 +1,11 @@
+import React, { useState } from 'react';
+import { Nav } from '../overview/nav';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Selection } from './selection';
+import { ElectionSetting } from './index';
 import { DatePickerWithPresets } from "../date";
 
 export function GeneralElectionSettings() {
@@ -149,6 +153,46 @@ export function ElectionDuplicationSettings() {
         <>
             <p>This will help you to use this election as template for another electiion</p>
             <Button>Duplicate</Button>
+        </>
+    );
+}
+export default function ElectionSettings() {
+    const [selectedSetting, setSelectedSetting] = useState(ElectionSetting.General);
+
+    const renderSelectedSetting = () => {
+        switch (selectedSetting) {
+            case ElectionSetting.Dates:
+                return <ElectionDatesSettings />;
+            case ElectionSetting.Voters:
+                return <ElectionVotersSettings />;
+            case ElectionSetting.Messages:
+                return <ElectionMessagesSettings />;
+            case ElectionSetting.Email:
+                return <ElectionEmailSettings />;
+            case ElectionSetting.Result:
+                return <ElectionResultSettings />;
+            case ElectionSetting.Duplicate:
+                return <ElectionDuplicationSettings />;
+            default:
+                return <GeneralElectionSettings />;
+        }
+    };
+
+    return (
+        <>
+            <Nav />
+            <div className="p-4 md:py-8 md:px-10 lg:px-16 xl:px-20 space-y-6">
+                <div className="flex justify-center items-center">
+                    <Selection
+                        selectedSetting={selectedSetting}
+                        setSelectedSetting={setSelectedSetting}
+                    />
+                </div>
+                <div className="text-center">
+                    <h1 className="text-2xl font-semibold">{`The ${selectedSetting} Setting`}</h1>
+                </div>
+                <div>{renderSelectedSetting()}</div>
+            </div>
         </>
     );
 }
