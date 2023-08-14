@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Nav } from '../overview/nav';
+import { Nav } from './nav';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Selection } from './selection';
 import { ElectionSetting } from './index';
-import { DatePickerWithPresets } from "../date";
+import { DatePickerWithPresets } from "../dashboard/date";
 
 export function GeneralElectionSettings() {
     return (
@@ -180,7 +180,10 @@ export default function ElectionSettings() {
 
     return (
         <>
+        <div className='w-1/4'>
             <Nav />
+        </div>
+        <div className='w-3/4'>
             <div className="p-4 md:py-8 md:px-10 lg:px-16 xl:px-20 space-y-6">
                 <div className="flex justify-center items-center">
                     <Selection
@@ -193,6 +196,7 @@ export default function ElectionSettings() {
                 </div>
                 <div>{renderSelectedSetting()}</div>
             </div>
+        </div>
         </>
     );
 }

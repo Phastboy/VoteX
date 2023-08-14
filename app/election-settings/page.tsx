@@ -1,4 +1,3 @@
-"use client";
 "use client"
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
@@ -13,8 +12,8 @@ const user = {
     '/avatar.png',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Settings', href: '/dashboard/election-settings', current: false }
+  { name: 'Dashboard', href: '', current: false },
+  { name: 'Settings', href: '/dashboard/election-settings', current: true }
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '/dashboard/settings' },
