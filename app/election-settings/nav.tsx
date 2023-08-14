@@ -5,11 +5,11 @@ import { useState } from "react";
 
 export function Nav() {
     const navLinks = [
-        ["/dashboard/election-settings", "Settings"],
-        ["/dashboard/ballot", "Ballot"],
-        ["/dashboard/voters", "Voters"],
-        ["/dashboard/preview", "Preview"],
-        ["/dashboard/launch-election", "Launch"]
+        ["/election-settings", "Settings"],
+        ["/ballot", "Ballot"],
+        ["/voters", "Voters"],
+        ["/preview", "Preview"],
+        ["/launch-election", "Launch"]
     ];
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,10 +19,10 @@ export function Nav() {
     };
 
     return (
-        <nav className="flex flex-wrap items-center justify-between p-2 bg-green-700 text-white">
+        <nav className="flex flex-wrap items-center justify-between p-2">
             <div className={`md:mb-4`}>
                 {navLinks.map(([url, title]) => (
-                    <Link key={url} href={url} className="block md:mr-4 text-center py-2 px-6 rounded-md hover:bg-green-800">
+                    <Link key={url} href={url} className="block md:mr-4 text-center py-2 px-6 rounded-md hover:bg-gray-100">
                         {title}
                     </Link>
                 ))}

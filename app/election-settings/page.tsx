@@ -12,8 +12,8 @@ const user = {
     '/avatar.png',
 }
 const navigation = [
-  { name: 'Dashboard', href: '', current: false },
-  { name: 'Settings', href: '/dashboard/election-settings', current: true }
+  { name: 'Dashboard', href: '/dashboard', current: false },
+  { name: 'Settings', href: '/election-settings', current: true }
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '/dashboard/settings' },
