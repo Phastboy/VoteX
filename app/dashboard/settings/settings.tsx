@@ -151,6 +151,7 @@ function DeactivateAccountSettings() {
                 <Label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</Label>
                 <Input id="password" name="password" type="password" autoComplete="current-password" className="mt-1 block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
             </div>
+            <p className="text-sm">Enter your password to deactivate your account</p>
             <div className="my-5">
                 <Button type="submit" variant="continue">Deactivate</Button>
             </div>
