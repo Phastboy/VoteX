@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import Menu from "./menu";
+import { useSession, signIn, signOut } from "next-auth/react"
 import autoprefixer from 'autoprefixer';
 
 export default function Home() {

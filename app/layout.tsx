@@ -1,8 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import Provider  from '@/redux/provider';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import { Setup } from '@/components/utils';
 
 
 
@@ -20,7 +22,13 @@ export default function RootLayout({
 }: ChildrenProps) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+          <Provider>
+            <Setup/>
+            {children}
+      </Provider>
+      </body>
+      
     </html>
   )
 }
