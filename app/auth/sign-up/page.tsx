@@ -1,7 +1,47 @@
+'use client'
+import React, {useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Login() {
+    const [formData, setFormData]=useState({
+        matric_no: '',
+        email: '',
+        phone_number: '',
+        username: '',
+        password: ''
+    })
+
+    const handleSubmit=async (event) => {
+        event.preventDefault();
+
+        try {
+            const response=await fetch('http://votex-backend.eastasia.cloudapp.azure.com/accounts/register/',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if(response.ok){
+                alert('registration successfil')
+            }else {
+                alert('registration failed')
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleChange=(event)=>{
+        const {name, value}=event.target;
+        setFormData((prevFormData)=>({
+            ...prevFormData,
+            [name]: value,
+        }));
+    };
+
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -20,8 +60,7 @@ export default function Login() {
              <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form 
                 className="space-y-6" 
-                action="/dashboard" 
-                method="POST">
+                onSubmit={handleSubmit}>
                     <div>
                         <label 
                         htmlFor="matric_no" 
@@ -34,6 +73,7 @@ export default function Login() {
                             placeholder="ABC/1990/01"
                             required 
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                            onChange={handleChange}
                             />
                         </div>
                     </div>
@@ -49,21 +89,24 @@ export default function Login() {
                             placeholder="example@school.edu.ng"
                             required 
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                            onChange={handleChange}
                             />
                         </div>
                     </div>
                     <div>
                         <label 
-                        htmlFor="phone_no" 
+                        htmlFor="phone_number" 
                         className="block text-sm font-medium leading-6 text-gray-900">
                         Phone number
                         </label>
                         <div className="mt-2">
-                            <input id="tel" 
-                            name="phone_no" type="tel" 
+                            <input 
+                            id="phone_number" 
+                            name="phone_number" type="tel" 
                             placeholder="+123456789"
                             required 
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                            onChange={handleChange}
                             />
                         </div>
                     </div>
@@ -80,6 +123,7 @@ export default function Login() {
                             autoComplete="email" 
                             required 
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                            onChange={handleChange}
                             />
                         </div>
                     </div>
@@ -97,7 +141,9 @@ export default function Login() {
                             placeholder="*******"
                             autoComplete="current-password" 
                             required 
-                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
+                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                            onChange={handleChange}
+                            />
                         </div>
                     </div>
                     <div>
