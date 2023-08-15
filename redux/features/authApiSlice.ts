@@ -35,7 +35,6 @@ const authApiSlice = apiSlice.injectEndpoints({
 				withCredentials: true,
 				credentials: 'include',
       			crossorigin: true,
-				mode: 'no-cors',
 				headers: {
 					Accept: 'application/json',
 					'Content-Type': 'application/x-www-form-urlencoded',
