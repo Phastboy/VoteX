@@ -4,22 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface FormData {
-  matric_no: string;
-  email: string;
-  phone_number: string;
-  username: string;
-  password: string;
-  user_type: string
-}
+    email: string;
+    phone_number: string;
+    username: string;
+    password: string;
+    user_type: string
+  }
 
-export default function Signup(): JSX.Element {
+export default function RegisterGuest() {
     const [formData, setFormData] = useState<FormData>({
-        matric_no: "",
         email: "",
         phone_number: "",
         username: "",
         password: "",
-        user_type: 'student'
+        user_type: 'guest'
     });
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -27,7 +25,7 @@ export default function Signup(): JSX.Element {
 
         try {
         const response = await fetch(
-            "https://votex-backend.eastasia.cloudapp.azure.com/accounts/register/",
+            "http://votex-backend.eastasia.cloudapp.azure.com/accounts/register/",
             {
             method: "POST",
             headers: {
@@ -66,60 +64,44 @@ export default function Signup(): JSX.Element {
                 alt="VoteX"
                 />
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    Sign up for free
+                    Sign up
                 </h2>
             </div>
                 
-             <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form 
                 className="space-y-6" 
                 onSubmit={handleSubmit}>
                     <div>
                         <label 
-                        htmlFor="matric_no" 
-                        className="block text-sm font-medium leading-6 text-gray-900">
-                        Matric number
-                        </label>
-                        <div className="mt-2">
-                            <input id="matric_no" 
-                            name="matric_no" type="text" 
-                            placeholder="ABC/1990/01"
-                            required 
-                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
-                            onChange={handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <label 
                         htmlFor="email" 
                         className="block text-sm font-medium leading-6 text-gray-900">
-                        Student email address
+                        Email address
                         </label>
                         <div className="mt-2">
                             <input id="email" 
                             name="email" type="email" 
-                            placeholder="example@school.edu.ng"
+                            placeholder="example@gmail.com"
+                            autoComplete="email" 
                             required 
-                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             onChange={handleChange}
+                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div>
                         <label 
-                        htmlFor="phone_number" 
+                        htmlFor="phone_no" 
                         className="block text-sm font-medium leading-6 text-gray-900">
                         Phone number
                         </label>
                         <div className="mt-2">
-                            <input 
-                            id="phone_number" 
-                            name="phone_number" type="tel" 
+                            <input id="phone_no" 
+                            name="phone_no" type="tel" 
                             placeholder="+123456789"
                             required 
-                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             onChange={handleChange}
+                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -127,16 +109,16 @@ export default function Signup(): JSX.Element {
                         <label 
                         htmlFor="username" 
                         className="block text-sm font-medium leading-6 text-gray-900">
-                        Userrname
+                        Username
                         </label>
                         <div className="mt-2">
                             <input id="username" 
                             name="username" type="text" 
-                            placeholder="username"
-                            autoComplete="email" 
+                            placeholder="your username"
+                            autoComplete="username" 
                             required 
-                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             onChange={handleChange}
+                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -154,23 +136,22 @@ export default function Signup(): JSX.Element {
                             placeholder="*******"
                             autoComplete="current-password" 
                             required 
-                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             onChange={handleChange}
-                            />
+                            className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
                         </div>
                     </div>
                     <div>
                         <button type="submit"
                         className="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
-                        Sign up
+                            Sign up
                         </button>
                     </div>
                 </form>
                 <p className="mt-10 text-center text-sm text-gray-500">
-                Not a student?
-                    <Link href="/auth/guest" 
+                Have an account?
+                    <Link href="/auth/login" 
                     className="font-semibold leading-6 text-green-600 hover:text-green-500">
-                    Sign up as guest
+                    Login
                     </Link>
                 </p>
             </div>
