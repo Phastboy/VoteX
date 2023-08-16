@@ -1,14 +1,10 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAppDispatch } from '@/redux/hooks';
-import { useLoginMutation } from '@/redux/features/authApiSlice';
-import { setAuth } from '@/redux/features/authSlice';
 import { toast } from 'react-toastify';
 
 export default function useLogin() {
 	const router = useRouter();
-	const dispatch = useAppDispatch();
-	const [login, { isLoading }] = useLoginMutation();
+	const [isLoading, setIsLoading] = useState(false);
 
 	const [formData, setFormData] = useState({
 		email: '',
@@ -19,23 +15,34 @@ export default function useLogin() {
 
 	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
-
 		setFormData({ ...formData, [name]: value });
 	};
 
-	const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+	const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-		login({ email, password })
-			.unwrap()
-			.then(() => {
-				dispatch(setAuth());
+		setIsLoading(true);
+
+		try {
+			const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/accounts/token/obtain/`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ email, password }),
+			});
+
+			if (response.ok) {
 				toast.success('Logged in');
 				router.push('/dashboard');
-			})
-			.catch(() => {
+			} else {
 				toast.error('Failed to log in');
-			});
+			}
+		} catch (error) {
+			console.error('Error while logging in:', error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	return {
