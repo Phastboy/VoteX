@@ -2,7 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, ChangeEvent, FormEvent } from "react";
-// import { useRouter } from "next/router";
 
 interface FormData {
   email: string;
@@ -14,15 +13,13 @@ export default function Login(): JSX.Element {
         email: '',
         password: ''
     });
-    const [error, setError] = useState<string>('');
 
-    // const router = useRouter();
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         try {
-        const response = await fetch('YOUR_AUTHENTICATION_ENDPOINT', {
+        const response = await fetch('http://votex-backend.eastasia.cloudapp.azure.com/accounts/token/obtain', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
@@ -30,17 +27,14 @@ export default function Login(): JSX.Element {
             body: JSON.stringify(formData),
         });
 
-        const data = await response.json();
-
         if (response.ok) {
-            // router.push('/dashboard');
             alert('Login Successful');
         } else {
-            setError(data.message);
+            alert('Login failed');
         }
         } catch (error) {
         console.log(error);
-        setError('An error occurred. Please try again.');
+        console.log(error);
         }
     }
 
@@ -69,9 +63,9 @@ export default function Login(): JSX.Element {
                 
              <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form 
-                className="space-y-6" 
-                action="/feed" 
-                method="POST">
+                className="space-y-6"
+                onSubmit={handleSubmit}
+                >
                     <div>
                         <label 
                         htmlFor="email" 
@@ -84,6 +78,7 @@ export default function Login(): JSX.Element {
                             placeholder="example@gmail.com"
                             autoComplete="email" 
                             required 
+                            onChange={handleChange}
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             />
                         </div>
@@ -102,6 +97,7 @@ export default function Login(): JSX.Element {
                             placeholder="*******"
                             autoComplete="current-password" 
                             required 
+                            onChange={handleChange}
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
                         </div>
                     </div>
