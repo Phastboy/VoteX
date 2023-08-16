@@ -1,7 +1,57 @@
-import Image from "next/image";
+'use client'
 import Link from "next/link";
+import Image from "next/image";
+import { useState, ChangeEvent, FormEvent } from "react";
+// import { useRouter } from "next/router";
 
-export default function Login() {
+interface FormData {
+  email: string;
+  password: string;
+}
+
+export default function Login(): JSX.Element {
+    const [formData, setFormData] = useState<FormData>({
+        email: '',
+        password: ''
+    });
+    const [error, setError] = useState<string>('');
+
+    // const router = useRouter();
+
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        try {
+        const response = await fetch('YOUR_AUTHENTICATION_ENDPOINT', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // router.push('/dashboard');
+            alert('Login Successful');
+        } else {
+            setError(data.message);
+        }
+        } catch (error) {
+        console.log(error);
+        setError('An error occurred. Please try again.');
+        }
+    }
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+        }));
+    };
+
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
