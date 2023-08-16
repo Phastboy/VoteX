@@ -9,6 +9,7 @@ interface FormData {
   phone_number: string;
   username: string;
   password: string;
+  user_type: string
 }
 
 export default function Signup(): JSX.Element {
@@ -18,6 +19,7 @@ export default function Signup(): JSX.Element {
         phone_number: "",
         username: "",
         password: "",
+        user_type: 'student'
     });
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
