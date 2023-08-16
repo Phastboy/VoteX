@@ -1,44 +1,55 @@
 'use client'
-import React, {useState} from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Login() {
-    const [formData, setFormData]=useState({
-        matric_no: '',
-        email: '',
-        phone_number: '',
-        username: '',
-        password: ''
-    })
+interface FormData {
+  matric_no: string;
+  email: string;
+  phone_number: string;
+  username: string;
+  password: string;
+}
 
-    const handleSubmit=async (event) => {
+export default function Signup(): JSX.Element {
+    const [formData, setFormData] = useState<FormData>({
+        matric_no: "",
+        email: "",
+        phone_number: "",
+        username: "",
+        password: "",
+    });
+
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         try {
-            const response=await fetch('http://votex-backend.eastasia.cloudapp.azure.com/accounts/register/',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if(response.ok){
-                alert('registration successfil')
-            }else {
-                alert('registration failed')
+        const response = await fetch(
+            "http://votex-backend.eastasia.cloudapp.azure.com/accounts/register/",
+            {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
             }
-        } catch (error) {
-            console.log(error)
-        }
-    }
+        );
 
-    const handleChange=(event)=>{
-        const {name, value}=event.target;
-        setFormData((prevFormData)=>({
-            ...prevFormData,
-            [name]: value,
+        if (response.ok) {
+            alert("Registration successful");
+        } else {
+            alert("Registration failed");
+        }
+        } catch (error) {
+        console.error(error);
+        }
+    };
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
         }));
     };
 
