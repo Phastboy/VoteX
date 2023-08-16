@@ -32,7 +32,7 @@ export default function BallotCreator() {
             <h1 className="text-2xl font-semibold mb-4">Create Ballot</h1>
 
             <div className="mb-4">
-                <h2 className="text-lg font-semibold mb-2">Candidates</h2>
+                <h2 className="text-lg font-semibold mb-2">Add ballot questions</h2>
                 {candidates.map((candidate, index) => (
                     <input
                         key={index}
