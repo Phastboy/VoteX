@@ -64,7 +64,7 @@ export default function RegisterGuest() {
                 alt="VoteX"
                 />
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    Sign in to your account
+                    Sign up
                 </h2>
             </div>
                 
@@ -143,7 +143,7 @@ export default function RegisterGuest() {
                     <div>
                         <button type="submit"
                         className="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
-                            Sign in
+                            Sign up
                         </button>
                     </div>
                 </form>
