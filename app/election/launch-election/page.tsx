@@ -1,8 +1,9 @@
+'use client'
 import React, { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
-import CreateBallotPage from './add-ballot';
+import ElectionInfo from './launch';
 
 const user = {
   name: 'user',
@@ -134,7 +135,7 @@ export default function Nav(): JSX.Element {
       </header>
       <main>
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-          <CreateBallotPage />
+        <ElectionInfo />
         </div>
       </main>
     </div>

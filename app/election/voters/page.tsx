@@ -1,22 +1,64 @@
 'use client'
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import React, { useState, ChangeEvent } from 'react';
 
-export default function AddVoters(){
-    const [voters, setVoters] = useState([]);
+interface VotingOptionsProps {
+    onAllowedVotersChange: (allowedVoters: string[]) => void;
+    onPublicVotingChange: (isPublicVoting: boolean) => void;
+}
+
+function VotingOptions({
+    onAllowedVotersChange,
+    onPublicVotingChange
+}: VotingOptionsProps): JSX.Element {
+    const [allowedVoters, setAllowedVoters] = useState<string[]>([]);
+    const [isPublicVoting, setIsPublicVoting] = useState(false);
+
+    const handleAllowedVoterChange = (index: number, event: ChangeEvent<HTMLInputElement>) => {
+        const newAllowedVoters = [...allowedVoters];
+        newAllowedVoters[index] = event.target.value;
+        setAllowedVoters(newAllowedVoters);
+        onAllowedVotersChange(newAllowedVoters);
+    };
+
+    const handlePublicVotingChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.checked;
+        setIsPublicVoting(value);
+        onPublicVotingChange(value);
+    };
+
     return (
-        <div className="bg-white p-8 rounded-lg shadow-md">
-            <h1 className="text-2xl font-semibold mb-4">Add Voters</h1>
-            <div className="mb-4">
-                <Label htmlFor="voters">Add Voter email</Label>
-                <Input/>
-            </div>
-            <div className="mb-4">
-                <Label htmlFor="voter">Add Voter phone number</Label>
-                <Input/>
+        <div className="bg-white p-4 rounded-lg shadow-md">
+            <h2 className="text-lg font-semibold mb-2">Allowed Voters</h2>
+            {allowedVoters.map((voter, index) => (
+                <input
+                    key={index}
+                    type="text"
+                    value={voter}
+                    onChange={(event) => handleAllowedVoterChange(index, event)}
+                    className="block w-full border rounded-md p-2 mb-2"
+                    placeholder={`Allowed Voter ${index + 1}`}
+                />
+            ))}
+            <button onClick={() => setAllowedVoters([...allowedVoters, ''])}>
+                Add Allowed Voter
+            </button>
+
+            <div className="mt-4">
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={isPublicVoting}
+                        onChange={handlePublicVotingChange}
+                    />
+                    Public Voting
+                </label>
             </div>
         </div>
+    );
+}
+
+export default function AddAllowedVoters(){
+    return(
+        <VotingOptions onAllowedVotersChange={(newAllowedVoters) => {newAllowedVoters}} onPublicVotingChange={(newPublicVoting) => {newPublicVoting}}/>
     );
 }
