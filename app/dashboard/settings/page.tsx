@@ -17,7 +17,7 @@ const navigation = [
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '/dashboard/settings' },
-  { name: 'Settings', href: '/dashboard/settings' },
+  { name: 'Settings', href: '/election/election-settings' },
   { name: 'Sign out', href: '#' },
 ]
 
