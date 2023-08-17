@@ -1,4 +1,3 @@
-'use client'
 import React, { useState } from 'react';
 import {Nav} from '../../nav';
 import BallotCreator from './create-ballot';

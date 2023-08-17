@@ -19,7 +19,7 @@ export default function Login(): JSX.Element {
         event.preventDefault();
 
         try {
-        const response = await fetch('https://votex-backend.eastasia.cloudapp.azure.com/accounts/token/obtain', {
+        const response = await fetch('https://votex-backend.eastasia.cloudapp.azure.com/accounts/token/obtain/', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
