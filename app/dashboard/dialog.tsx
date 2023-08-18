@@ -15,16 +15,18 @@ import { Label } from "@/components/ui/label"
 
 interface FormData {
   title: string;
-  start: string;
-  stop: string;
+  start_date: string;
+  end_date: string;
+  timezone: string;
   visibility: string;
 }
 
 function Election() {
   const [formData, setFormData] = useState<FormData>({
     title: '',
-    start: '',
-    stop: '',
+    start_date: '',
+    end_date: '',
+    timezone: '',
     visibility: 'Private',
   });
 
@@ -33,7 +35,7 @@ function Election() {
 
     try {
       const headers={
-        'Authourization': `${localStorage.getItem('accessToken')}`,
+        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
         'Content-type': 'application/json'
       };
 
@@ -91,22 +93,39 @@ function Election() {
             <Label htmlFor="electionStart" className="text-right">
               Starting
             </Label>
-            <DatePickerWithPresets
+            <Input
               id="electionStart"
-              name="start"
-              value={formData.start}
+              name="start_date"
+              value={formData.start_date}
+              placeholder='2021-01-01 00:00:00'
               onChange={handleChange}
+              className="col-span-3"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="electionEnd" className="text-right">
               Ending
             </Label>
-            <DatePickerWithPresets
+            <Input
               id="electionEnd"
-              name="stop"
-              value={formData.stop}
+              name="end_date"
+              value={formData.end_date}
+              placeholder='2021-12-31 23:59:59'
               onChange={handleChange}
+              className="col-span-3"
+            />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="timeZone" className="text-right">
+              Timezone
+            </Label>
+            <Input
+              id="timeZone"
+              name="timezone"
+              value={formData.timezone}
+              placeholder='UTC+1'
+              onChange={handleChange}
+              className="col-span-3"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
@@ -117,6 +136,7 @@ function Election() {
               id="electionVisibility"
               name="visibility"
               value={formData.visibility}
+              placeholder='Private'
               onChange={handleChange}
               className="col-span-3"
             >
