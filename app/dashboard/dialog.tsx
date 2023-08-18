@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { DatePickerWithPresets } from './date';
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,9 +9,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useRouter } from 'next/navigation';
 
 interface FormData {
   title: string;
@@ -30,6 +31,8 @@ function Election() {
     visibility: 'Private',
   });
 
+  const router = useRouter();
+
   const handleCreateElection = async (event: FormEvent) => {
     event.preventDefault();
 
@@ -47,6 +50,7 @@ function Election() {
 
       if (response.ok) {
         alert('Election created successfully');
+        router.push('/election/election-settings');
       } else {
         alert('Election creation failed');
       }
