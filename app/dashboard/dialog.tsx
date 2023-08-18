@@ -32,11 +32,14 @@ function Election() {
     event.preventDefault();
 
     try {
+      const headers={
+        'Authourization': `${localStorage.getItem('accessToken')}`,
+        'Content-type': 'application/json'
+      };
+
       const response = await fetch('https://votex-backend.eastasia.cloudapp.azure.com/elections/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: headers,
         body: JSON.stringify(formData),
       });
 

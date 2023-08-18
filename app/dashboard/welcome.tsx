@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react"
 import { Election, Poll } from "./dialog"
 
 export default function Welcome() {
+
   return (
     <main>
       <div className="text-center py-10">

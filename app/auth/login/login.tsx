@@ -32,6 +32,10 @@ export default function Login({ onLoginSuccess }: Props): JSX.Element {
         });
 
         if (response.ok) {
+            const data=await response.json();
+            const { refresh, access }=data
+            localStorage.setItem('refreshToken', refresh)
+            localStorage.setItem('accessToken', access)
             alert('Login Successful');
             onLoginSuccess();
         } else {
