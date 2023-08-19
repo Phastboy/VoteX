@@ -34,12 +34,18 @@ export default function BallotCreator(): JSX.Element {
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        try {
-            const response = await fetch('https://votex-backend.eastasia.cloudapp.azure.com/elections/:id/questions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+        const accessToken = localStorage.getItem('accessToken');
+        const electionId = localStorage.getItem('electionId');
+      
+          try {
+            const headers = {
+              'Authorization': `Bearer ${accessToken}`,
+              'Content-type': 'application/json'
+            };
+      
+            const response = await fetch(`https://votex-backend.eastasia.cloudapp.azure.com/elections/${electionId}/questions`, {
+              method: 'POST',
+              headers: headers,
                 body: JSON.stringify({
                     candidates,
                     options,

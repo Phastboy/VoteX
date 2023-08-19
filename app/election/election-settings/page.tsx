@@ -16,9 +16,9 @@ const navigation = [
   { name: 'Settings', href: '/election/election-settings', current: true }
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '/dashboard/settings' },
-  { name: 'Settings', href: '/dashboard/settings' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Your Profile', href: '/profile/settings' },
+  { name: 'Settings', href: '/profile/settings' },
+  { name: 'Sign out', href: '/profile/sign-out' },
 ]
 
 function classNames(...classes) {
