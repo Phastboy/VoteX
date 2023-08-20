@@ -146,7 +146,7 @@ export default function ElectionSettings() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, type, checked, value } = event.target;
 
-    const updatedValue = type === 'checkbox' ? checked : value;
+    let updatedValue: string | boolean = type === 'checkbox' ? checked : event.target.value;
 
     setSelectedSettingData((prevFormData) => ({
         ...prevFormData,
@@ -169,17 +169,16 @@ export default function ElectionSettings() {
             {selectedSettingData.setting_type === 'BOOLEAN' ? (
               <>
                 <div>
-                <label className="inline-flex items-center space-x-2 mb-2">
-                  <input
-                      type="checkbox"
-                      name="value"
-                      className="form-checkbox text-green-500 border-gray-300 focus:ring focus:ring-green-200 focus:ring-opacity-50"
-                      checked={selectedSettingData.value === 'true'}
-                      onChange={handleChange}
-                  />
-                  <span className="text-sm">Enable</span>
-                </label>
-
+                  <label className="inline-flex items-center space-x-2 mb-2">
+                    <input
+                        type="checkbox"
+                        name="value"
+                        className="form-checkbox text-green-500 border-gray-300 focus:ring focus:ring-green-200 focus:ring-opacity-50"
+                        checked={selectedSettingData.value === 'true'}
+                        onChange={handleChange}
+                    />
+                    <span className="text-sm">Enable</span>
+                  </label>
                 </div>
                 <div className='my-4'>
                   <Label className="inline-flex items-center space-x-2 m-2">Description</Label>

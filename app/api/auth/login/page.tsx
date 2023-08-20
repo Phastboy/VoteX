@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, ChangeEvent, FormEvent } from "react";
 
+const baseUrl = process.env.apiBaseUrl;
+
+
 interface FormData {
   email: string;
   password: string;
@@ -19,7 +22,7 @@ export default function Login(): JSX.Element {
         event.preventDefault();
 
         try {
-        const response = await fetch('http://votex-backend.eastasia.cloudapp.azure.com/accounts/token/obtain', {
+        const response = await fetch(`${baseUrl}/accounts/token/obtain`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

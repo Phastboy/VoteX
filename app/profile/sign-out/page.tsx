@@ -1,3 +1,6 @@
+'use client'
+import { Button } from "@/components/ui/button";
+
 export default function LogOut() {
     const handleSignOut = async (event) => {
         event.preventDefault();
@@ -7,10 +10,10 @@ export default function LogOut() {
     }
 
     return (
-        <div>
+        <div className="m-10">
             <h1>Log Out</h1>
-            <form method="post" action="/api/auth/signout">
-                <button type="submit">Sign out</button>
+            <form method="post" onSubmit={handleSignOut}>
+                <Button variant="continue" type="submit">Sign out</Button>
             </form>
         </div>
     )
