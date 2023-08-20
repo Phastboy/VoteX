@@ -144,18 +144,16 @@ export default function ElectionSettings() {
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, type } = event.target;
-    let updatedValue: string | boolean = event.target.value;
-  
-    if (type === 'checkbox') {
-      updatedValue = selectedSettingData?.value === 'true' ? 'false' : 'true';
-    }
-  
+    const { name, type, checked, value } = event.target;
+
+    const updatedValue = type === 'checkbox' ? checked : value;
+
     setSelectedSettingData((prevFormData) => ({
-      ...prevFormData,
-      [name]: updatedValue,
+        ...prevFormData,
+        [name]: updatedValue,
     }));
   };
+
   
 
   return (
@@ -169,18 +167,30 @@ export default function ElectionSettings() {
           <div key={selectedSettingData.id} className='bg-white border border-gray-200 rounded-md p-4 my-4'>
             <Label className="font-semibold mb-2">{selectedSettingData.title}</Label>
             {selectedSettingData.setting_type === 'BOOLEAN' ? (
-              <div>
+              <>
+                <div>
                 <label className="inline-flex items-center space-x-2 mb-2">
                   <input
-                    type="checkbox"
-                    value={selectedSettingData.value}
-                    className="form-checkbox"
-                    checked={selectedSettingData.value === 'true'}
-                    onChange={handleChange}
+                      type="checkbox"
+                      name="value"
+                      className="form-checkbox text-green-500 border-gray-300 focus:ring focus:ring-green-200 focus:ring-opacity-50"
+                      checked={selectedSettingData.value === 'true'}
+                      onChange={handleChange}
                   />
                   <span className="text-sm">Enable</span>
                 </label>
-              </div>
+
+                </div>
+                <div className='my-4'>
+                  <Label className="inline-flex items-center space-x-2 m-2">Description</Label>
+                  <Input
+                    type="text"
+                      name="description"
+                      value={selectedSettingData.description}
+                      onChange={handleChange}
+                  />
+                </div>
+              </>
             ) : (
               <p className="text-gray-700">{selectedSettingData.value}</p>
             )}
