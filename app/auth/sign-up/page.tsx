@@ -1,7 +1,21 @@
-'use client'
-import React, { useState, ChangeEvent, FormEvent } from "react";
+
+'use client';
 import Image from "next/image";
 import Link from "next/link";
+import { useState, ChangeEvent, FormEvent } from "react";
+import  Spinner  from '@/components/common/Spinner';
+import { useRegister } from "@/hooks";
+import { RegisterForm } from "@/components/forms";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'Full Auth | Register',
+	description: 'Full Auth register page',
+};
+
+
 
 interface FormData {
   matric_no: string;
@@ -24,7 +38,6 @@ export default function Signup(): JSX.Element {
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
         try {
         const response = await fetch(
             "https://votex-backend.eastasia.cloudapp.azure.com/accounts/register/",
@@ -55,6 +68,8 @@ export default function Signup(): JSX.Element {
         }));
     };
 
+
+		
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -71,6 +86,7 @@ export default function Signup(): JSX.Element {
             </div>
                 
              <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+
                 <form 
                 className="space-y-6" 
                 onSubmit={handleSubmit}>
@@ -166,6 +182,7 @@ export default function Signup(): JSX.Element {
                         </button>
                     </div>
                 </form>
+
                 <p className="mt-10 text-center text-sm text-gray-500">
                 Not a student?
                     <Link href="/auth/guest" 
