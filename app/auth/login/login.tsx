@@ -51,14 +51,14 @@ export default function Login({ onLoginSuccess }: Props): JSX.Element {
 			} else {
 				const errorData = await response.json();
 				toast({
-					title: 'Success',
-					description: 'Logged in successfully',
+					title: 'Failed!',
+					description: errorData.message,
 				});
 				setErrorMessage(errorData.detail);
 			}
 		} catch (error) {
 			console.error(error);
-			if (error instanceof TypeError && error.message === 'Failed to fetch') {
+			if (error instanceof TypeError && error.message === 'Failed to fetch!') {
 				setErrorMessage('Network connection error. Please check your internet connection and try again.');
 				toast({
 					variant: 'destructive',
