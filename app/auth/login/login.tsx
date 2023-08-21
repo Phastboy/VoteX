@@ -18,46 +18,59 @@ interface Props {
 
 export default function Login({ onLoginSuccess }: Props): JSX.Element {
 	const { toast } = useToast()
+	const [errorMessage, setErrorMessage] = useState('');
+
 
     const [formData, setFormData] = useState<FormData>({
         email: '',
         password: ''
     });
 
+	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
 
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+		try {
+			const response = await fetch('https://votex-backend.eastasia.cloudapp.azure.com/accounts/token/obtain/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
 
-        try {
-        const response = await fetch('https://votex-backend.eastasia.cloudapp.azure.com/accounts/token/obtain/', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
+			if (response.ok) {
+				const data = await response.json();
+				const { refresh, access } = data;
+				toast({
+					title: 'Success',
+					description: 'Logged in successfully',
+				});
+				localStorage.setItem('refreshToken', refresh);
+				localStorage.setItem('accessToken', access);
+				onLoginSuccess();
+			} else {
+				const errorData = await response.json();
+				toast({
+					title: 'Success',
+					description: 'Logged in successfully',
+				});
+				setErrorMessage(errorData.detail);
+			}
+		} catch (error) {
+			console.error(error);
+			if (error instanceof TypeError && error.message === 'Failed to fetch') {
+				setErrorMessage('Network connection error. Please check your internet connection and try again.');
+				toast({
+					variant: 'destructive',
+					title: 'Connection error!',
+					description: errorMessage,
+				});
+			} else {
+				setErrorMessage('An error occurred. Please try again.');
+			}
+		}
+	};
 
-        if (response.ok) {
-            const data=await response.json();
-            const { refresh, access }=data
-			toast({
-				title: "Success",
-				description: "Logged in successfully",
-			})
-            localStorage.setItem('refreshToken', refresh)
-            localStorage.setItem('accessToken', access)
-            onLoginSuccess();
-        } else {
-			toast({
-				title: "Failed",
-				description: "Log in failed",
-			})
-        }
-        } catch (error) {
-        console.log(error);
-        console.log(error);
-        }
-    }
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
