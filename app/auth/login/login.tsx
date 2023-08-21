@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, ChangeEvent, FormEvent } from "react";
+import { Button } from "@/components/ui/button"
+import { ToastAction } from "@/components/ui/toast"
+import { useToast } from "@/components/ui/use-toast"
+import{ Toaster } from "@/components/ui/toaster";
+
 
 interface FormData {
   email: string;
@@ -12,6 +17,7 @@ interface Props {
 }
 
 export default function Login({ onLoginSuccess }: Props): JSX.Element {
+	const { toast } = useToast()
 
     const [formData, setFormData] = useState<FormData>({
         email: '',
@@ -34,12 +40,18 @@ export default function Login({ onLoginSuccess }: Props): JSX.Element {
         if (response.ok) {
             const data=await response.json();
             const { refresh, access }=data
+			toast({
+				title: "Success",
+				description: "Logged in successfully",
+			})
             localStorage.setItem('refreshToken', refresh)
             localStorage.setItem('accessToken', access)
-            alert('Login Successful');
             onLoginSuccess();
         } else {
-            alert('Login failed');
+			toast({
+				title: "Failed",
+				description: "Log in failed",
+			})
         }
         } catch (error) {
         console.log(error);
@@ -57,6 +69,7 @@ export default function Login({ onLoginSuccess }: Props): JSX.Element {
 
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+			<Toaster/>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <Image 
                 className="mx-auto h-10 w-auto" 
