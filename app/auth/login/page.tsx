@@ -25,10 +25,7 @@ export default function Login() {
             </div>
                 
              <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-<<<<<<< HEAD
-             <LoginForm />
-=======
-                <form 
+    <form 
                 className="space-y-6" 
                 action="/feed" 
                 method="POST">
@@ -81,7 +78,6 @@ export default function Login() {
                         </button>
                     </div>
                 </form>
->>>>>>> 40dbea05046215b444ee536b25855d6058401f95
 				<div className="text-sm">
 					<p className="mt-10 text-center text-sm text-gray-500">
                 Not a member?
