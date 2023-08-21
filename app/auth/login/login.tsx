@@ -42,6 +42,7 @@ export default function Login({ onLoginSuccess }: Props): JSX.Element {
 				const data = await response.json();
 				const { refresh, access } = data;
 				toast({
+                    variant: 'success',
 					title: 'Success',
 					description: 'Logged in successfully',
 				});
@@ -50,11 +51,12 @@ export default function Login({ onLoginSuccess }: Props): JSX.Element {
 				onLoginSuccess();
 			} else {
 				const errorData = await response.json();
+                setErrorMessage(errorData.detail);
 				toast({
+                    variant: 'failed',
 					title: 'Failed!',
 					description: errorData.message,
 				});
-				setErrorMessage(errorData.detail);
 			}
 		} catch (error) {
 			console.error(error);
@@ -67,6 +69,11 @@ export default function Login({ onLoginSuccess }: Props): JSX.Element {
 				});
 			} else {
 				setErrorMessage('An error occurred. Please try again.');
+                toast({
+					variant: 'destructive',
+					title: 'Error!',
+					description: errorMessage,
+				});
 			}
 		}
 	};
