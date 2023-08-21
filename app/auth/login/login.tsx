@@ -1,16 +1,59 @@
+import Link from "next/link";
+import Image from "next/image";
+import { useState, ChangeEvent, FormEvent } from "react";
 
-'use client'
-import React from 'react';
-import Login from './login';
-import { useRouter } from 'next/navigation';
+interface FormData {
+  email: string;
+  password: string;
+}
 
-function LoginPage() {
-    const router = useRouter();
+interface Props {
+    onLoginSuccess: () => void;
+}
 
-    const handleLoginSuccess = () => {
-        router.push('/dashboard');
+export default function Login({ onLoginSuccess }: Props): JSX.Element {
+
+    const [formData, setFormData] = useState<FormData>({
+        email: '',
+        password: ''
+    });
+
+
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        try {
+        const response = await fetch('https://votex-backend.eastasia.cloudapp.azure.com/accounts/token/obtain/', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+            const data=await response.json();
+            const { refresh, access }=data
+            localStorage.setItem('refreshToken', refresh)
+            localStorage.setItem('accessToken', access)
+            alert('Login Successful');
+            onLoginSuccess();
+        } else {
+            alert('Login failed');
+        }
+        } catch (error) {
+        console.log(error);
+        console.log(error);
+        }
+    }
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+        }));
     };
-
 
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -27,11 +70,11 @@ function LoginPage() {
                 </h2>
             </div>
                 
-             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form 
-                className="space-y-6" 
-                action="/feed" 
-                method="POST">
+            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <form 
+                className="space-y-6"
+                onSubmit={handleSubmit}
+                >
                     <div>
                         <label 
                         htmlFor="email" 
@@ -44,6 +87,7 @@ function LoginPage() {
                             placeholder="example@gmail.com"
                             autoComplete="email" 
                             required 
+                            onChange={handleChange}
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
                             />
                         </div>
@@ -62,6 +106,7 @@ function LoginPage() {
                             placeholder="*******"
                             autoComplete="current-password" 
                             required 
+                            onChange={handleChange}
                             className="block w-full rounded-md border-0 ps-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"/>
                         </div>
                     </div>
@@ -94,5 +139,3 @@ function LoginPage() {
         </div>
     );
 }
-
-export default LoginPage;
