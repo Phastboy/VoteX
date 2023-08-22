@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { Button } from "@/components/ui/button"
 import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
@@ -12,6 +12,20 @@ interface FormData {
   password: string;
 }
 
+class NetworkError extends Error {
+    constructor(message: string) {
+        super(message);
+        this.name = 'NetworkError';
+    }
+}
+
+class APIError extends Error {
+    constructor(message: string) {
+        super(message);
+        this.name = 'APIError';
+    }
+}
+
 interface Props {
     onLoginSuccess: () => void;
 }
@@ -19,6 +33,8 @@ interface Props {
 export default function Login({ onLoginSuccess }: Props): JSX.Element {
 	const { toast } = useToast()
 	const [errorMessage, setErrorMessage] = useState('');
+    const [isErrorDisplayed, setIsErrorDisplayed] = useState(false);
+
 
 
     const [formData, setFormData] = useState<FormData>({
@@ -57,27 +73,45 @@ export default function Login({ onLoginSuccess }: Props): JSX.Element {
 					title: 'Failed!',
 					description: errorData.message,
 				});
+                setIsErrorDisplayed(true);
 			}
 		} catch (error) {
-			console.error(error);
-			if (error instanceof TypeError && error.message === 'Failed to fetch!') {
-				setErrorMessage('Network connection error. Please check your internet connection and try again.');
-				toast({
-					variant: 'destructive',
-					title: 'Connection error!',
-					description: errorMessage,
-				});
-			} else {
-				setErrorMessage('An error occurred. Please try again.');
+            console.error(error);
+            if (error instanceof NetworkError) {
+                setErrorMessage('Network connection error. Please check your internet connection and try again.');
+                setIsErrorDisplayed(true);
                 toast({
-					variant: 'destructive',
-					title: 'Error!',
-					description: errorMessage,
-				});
-			}
+                    variant: 'destructive',
+                    title: 'Connection error!',
+                    description: error.message,
+                });
+            } else if (error instanceof APIError) {
+                setErrorMessage('An error occurred. Please try again.');
+                setIsErrorDisplayed(true);
+                toast({
+                    variant: 'destructive',
+                    title: 'Error!',
+                    description: error.message,
+                });
+            } else {
+                setErrorMessage('An unexpected error occurred.');
+                setIsErrorDisplayed(true);
+            }
 		}
 	};
 
+    const clearErrorMessage = () => {
+        setErrorMessage('');
+        setIsErrorDisplayed(false);
+    };
+    
+    useEffect(() => {
+        if (isErrorDisplayed) {
+            const timer = setTimeout(clearErrorMessage, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [isErrorDisplayed]);
+    
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -85,6 +119,8 @@ export default function Login({ onLoginSuccess }: Props): JSX.Element {
         ...prevFormData,
         [name]: value,
         }));
+
+        clearErrorMessage();
     };
 
     return (
